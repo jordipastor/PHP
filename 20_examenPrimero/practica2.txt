@@ -1,0 +1,45 @@
+<?php
+Echo "PRACTICA 2: ";echo "<br />";echo "<br />";
+
+	function crearMatriz($filas,$columnas,$valIni,$incremento){
+		$v=array();
+		$valor=$valIni;
+		for($i=1;$i<=$filas;$i++){
+			for($j=1;$j<=$columnas;$j++){
+				$fila="X".$i;
+				$col="Y".$j;
+				$v[$fila][$col]=$valor;
+				$valor=$valor+$incremento;
+			}
+		}
+		return $v;
+	}
+	
+	function mostrarMatriz($matriz){
+	//necesitamos dos "foreach" para recorrer la matriz porque tiene dos dimensiones
+		foreach ($matriz as $fila=>$col)
+			foreach ($col as $col=>$valor){
+			echo "Para el índice ".$fila." e índice ".$col." tiene el Valor: ".$valor;echo "<br />";
+		}
+	}
+
+	function dibujarMatriz($matriz){
+		foreach ($matriz as $fila=>$col){
+			echo "| ".$fila." | ";
+			foreach ($col as $valor)
+				echo $valor." | ";
+			echo "<br />";
+		}
+	}
+
+echo "Crear matriz y print_r:";echo "<br />";
+$mat=crearMatriz(3,2,3,2);
+print_r($mat);echo "<br />";echo "<br />";
+
+echo "Función mostrarMatriz:";echo "<br />";
+mostrarMatriz($mat);echo "<br />";
+
+echo "Función dibujarMatriz:";echo "<br />";
+dibujarMatriz($mat);
+
+?>

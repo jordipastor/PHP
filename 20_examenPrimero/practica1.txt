@@ -1,0 +1,63 @@
+<?php
+
+	Echo "PRACTICA 1: "; echo "<br />";
+	
+	function crearArray($ind1,$ind2,$val1,$val2,$n=5){
+		$v=array();
+		for($i=0;count($v)<$n;$i++){
+			$indice="X".rand($ind1,$ind2);
+			$valor=rand($val1,$val2);
+			$v[$indice]=$valor;
+		}
+		global $max;
+		$max=max($v);
+	return $v;
+	}
+
+	function mostrarArray($vector){
+		//recorrer vector mostrando cada elemento
+		foreach ($vector as $indice=>$elemento){
+			echo "$elemento |";
+		}
+		//y mostrar el máximo al final
+		echo max($vector)." |";echo "<br />";
+		
+		//recorrer vector para mostrar los índices
+		foreach ($vector as $indice=>$elemento){
+			echo "$indice |";
+		}
+	}
+
+	//En la siguiente función paso el parámetro por referencia "&"
+	//para que el vector que se le pasa se vea afectado
+	function eliminarMaximo(&$vector){
+		//primero encontramos el índice de mayor valor
+		$max_key = max( array_keys( $vector ) );
+		echo "Máximo Índice = $max_key";echo "<br />";
+		unset($vector[$max_key]);
+	}
+
+
+$arrayNew=crearArray(10,95,100,200,8);
+echo "print_r:";echo "<br />";
+print_r($arrayNew);echo "<br />";
+echo "Máximo = ".$max;echo "<br />";
+
+echo "<br />";
+echo "mostrarArray:";echo "<br />";
+mostrarArray($arrayNew);echo "<br />";
+echo "<br />";
+
+echo "eliminarMaximo:";echo "<br />";
+eliminarMaximo($arrayNew);
+mostrarArray($arrayNew);echo "<br />";
+
+//Eliminar el elemento mínimo
+echo "<br />";
+echo "eliminar Mínimo:";echo "<br />";
+$minValor=min($arrayNew);
+echo "Mínimo = ".$minValor;echo "<br />";
+$ind = array_search ($minValor , $arrayNew );
+unset($arrayNew[$ind]);
+mostrarArray($arrayNew);
+?>

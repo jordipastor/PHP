@@ -1,0 +1,37 @@
+<?
+
+//Ejemplo de arrays desarrolloweb6.com
+
+	$arrayUno=array("uno","dos","tres","cuatro","los arrays siempre empiezan en el indice cero");
+    
+    //Creamos un array iniciada a cero
+    $arrayDos=array();
+    //Rellenamos los campos del array, no tienen por que ser del mismo tipo, ni consecutivos
+    $arrayDos[0]="uno";
+    $arrayDos[3]=0.88;
+    $arrayDos[1]=22;
+    $arrayDos[4]="final del array";
+    
+    /*
+    * Tambien se puede crear un array nueva con el indice vacio,
+    * interpretara que el numero de indice se corresponde con el
+    * orden en que ha sido creado
+*/
+	$arrayTres=array();
+
+	$arrayTres[]="valor1";
+
+	$arrayTres[]=2;
+
+	$arrayTres[]=3.3;
+
+	var_dump($arrayUno);
+	print "<pre>\n";
+	print "<hr />";
+	var_dump($arrayDos);
+
+	print "<hr />";
+	var_dump($arrayTres);
+	print "</pre>";
+
+?>

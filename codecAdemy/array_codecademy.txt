@@ -1,0 +1,14 @@
+<?php
+//Interpretando el ejemplo de www.codecademy.com/es
+	$listaCompra = array("Huevo", "Tomate", "Judias", "Salchichas", "patatas");
+	$amingos = array("Coco", "Picachu", "Espinete"); //Arrray tonto
+	
+	//El indice se inicia desde cero, indepdientemente del valor contenido en la posicion
+	echo $amigos[0]; //No parece imprimir el valor contenido en la posicion 0
+	
+	//Acceder a los array mediante offset, con [corchetes], o con {}
+	echo $amigos{0};
+	print_r($amigos{0}); //Así no me hace ni pajolero caso
+	
+	
+?>

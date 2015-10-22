@@ -1,0 +1,29 @@
+Información optenida del curso de PHP en www.codecademy.com/es
+Y de los ejercicios que he ido resolviendo.
+_______________________________________________________________
+
+Cadenas de texto
+Una sentencia es un pensamiento PHP completo.
+
+Las cadenas de caracteres se pueden representar entre comillas simples o dobles.
+	Las comillas simples le permiten identificar (a PHP) su valor contenido.
+	'32' Puede interpretarse como 32.
+
+	Mientras que el String contenido entre comillas dobles no es interpretado.
+	"32" equivaldría a treinta y dos. Y no al número 32.
+
+Variables
+Hasta ahora mostramos cadenas e hicimos operaciones matemáticas en la pantalla.
+Podemos hacer esto con el uso de variables. Una variable puede almacenar una cadena
+o un número y le da, a esa cadena o número, un nombre que distingue entre mayúsculas
+y minúsculas.
+Para hacer programaciones más complejas necesitamos una forma de "guardar" estos valores.
+$miNombre = "María";
+$miEdad = 32;
+
+Todos los nombres de variables en PHP comienzan con el signo pesos ( $ ).
+
+Las cadenas de caracteres se pueden concatenar con otra cadena de caracteres,
+con una operación aritmética o con una variable.
+
+echo "Mi nombre es: " . $miNombre . "y tengo: " . (30+2) . "años"; 

@@ -1,0 +1,1027 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0046)file:///C:/Users/paco/Desktop/Formularios.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  
+  <title>Formularios. HTML. Páginas web HTML / XHTML y hojas de estilo CSS.
+  Bartolomé Sintes Marco</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/">
+  <link>
+  <link href="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/amaya.css" rel="stylesheet" type="text/css" title="Color">
+  <link href="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ejemplos.css" rel="stylesheet" type="text/css">
+  <link href="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/amaya_bn.css" rel="alternate stylesheet" type="text/css" title="Blanco y negro">
+  <link rel="shortcut icon" href="http://www.mclibre.org/consultar/amaya/varios/mclibre.ico">
+</head>
+
+<body>
+<h1><a href="http://www.mclibre.org/consultar/amaya/index.html"><img alt="Volver al índice" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/indice.png" width="62" height="50" id="vpp" title="Volver al índice"></a>Formularios</h1>
+
+<p>En esta página se tratan los siguientes temas:</p>
+
+<div class="toc">
+<ul>
+  <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#L43">El formulario: <span class="html-eti">&lt;form&gt;</span></a></li>
+  <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Atributos">Atributos comunes de los controles: <span class="html-atri">name</span>, <span class="html-atri">value</span>, <span class="html-atri">disabled</span>, <span class="html-atri">readonly</span>,
+    <span class="html-atri">tabindex</span> y <span class="html-atri">accesskey</span></a></li>
+  <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Controles">Controles</a> 
+    <ul>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#n">Botones: <span class="html-eti">&lt;input /&gt;</span> y
+        <span class="html-eti">&lt;button&gt;</span></a> 
+        <ul>
+          <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Reset1">Botones Submit y Reset mediante <span class="html-eti">&lt;input /&gt;</span></a></li>
+          <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#mediante">Botones Submit y Reset mediante <span class="html-eti">&lt;button&gt;</span></a></li>
+        </ul>
+      </li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Caja">Caja de texto: <span class="html-eti">&lt;input
+        type="text" /&gt;</span>, <span class="html-eti">&lt;input
+        type="password" /&gt;</span> y <span class="html-eti">&lt;textarea&gt;</span></a> 
+        <ul>
+          <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Caja1">Caja de texto de una sola línea: <span class="html-atri-valor"><span class="html-eti">&lt;input
+            type="text" /&gt;</span></span> y <span class="html-eti">&lt;input
+            type="password" /&gt;</span></a></li>
+          <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Caja2">Caja de texto de varias líneas: <span class="html-atri-valor"><span class="html-eti">&lt;textarea&gt;</span></span></a></li>
+        </ul>
+      </li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Casilla">Casilla de verificación: <span class="html-eti">&lt;input type="checkbox" /&gt;</span></a></li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#radio1">Botón radio: <span class="html-eti">&lt;input
+        type="radio" /&gt;</span></a></li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#s">Menú: <span class="html-eti">&lt;select&gt;</span></a></li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Selector">Selector de archivo: <span class="html-eti">&lt;input type="file" /&gt;</span></a></li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Imagen">Imagen: <span class="html-eti">&lt;input
+        type="image" /&gt;</span></a></li>
+      <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Control">Control oculto: <span class="html-eti">&lt;input
+        type="hidden" /&gt;</span></a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Estructura">Grupos de controles: <span class="html-eti">&lt;fieldset&gt;</span></a></li>
+  <li><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#Etiqueta">Accesibilidad: <span class="html-eti">&lt;label&gt;</span></a></li>
+</ul>
+</div>
+<hr>
+
+<h2 id="L43">El formulario: <span class="html-eti">&lt;form&gt;</span></h2>
+
+<p>Un formulario es un conjunto de controles (botones, cajas de texto, casillas
+de verificación, botones radio, etc) que permiten al usuario introducir datos y
+enviarlos al servidor web para su procesamiento.</p>
+
+<p>La etiqueta que delimita un formulario es la etiqueta <span class="html-eti">&lt;form&gt; ... &lt;/form&gt;</span>. Los atributos más
+importantes de la etiqueta <span class="html-eti">&lt;form&gt;</span> son:</p>
+<ul>
+  <li><span class="html-atri">action</span>: contiene el nombre del agente que
+    procesará los datos remitidos al servidor (por ejemplo, un script de
+  PHP)</li>
+  <li><span class="html-atri">method</span>: define la manera de envíar los
+    datos al servidor. Los valores posibles son: 
+    <ul>
+      <li><span class="html-atri-valor">get</span>: los valores enviados se
+        añaden a la dirección indicada en el atributo <span class="html-atri">action</span></li>
+      <li><span class="html-atri-valor">post</span>: los valores se envían de
+        forma separada</li>
+    </ul>
+    <p>Si el atributo <span class="html-atri">method</span> no está
+    establecido, Internet Explorer y Firefox se comportan como si el valor
+    fuera <span class="html-atri-valor">get</span>.</p>
+  </li>
+</ul>
+
+<p>La etiqueta <span class="html-eti">&lt;form&gt;</span> es un elemento de
+bloque. En su interior puede haber cualquier elemento típico de una página web
+(párrafos, imágenes, divisiones, listas, tablas, etc.), además de las etiquetas
+que crean los controles.</p>
+
+<p>Los etiquetas que crean los controles en los formularios son <span class="html-eti">&lt;input /&gt;</span>, <span class="html-eti">&lt;button&gt;</span>, <span class="html-eti">&lt;select&gt;</span>, <span class="html-eti">&lt;optgroup&gt;</span>, <span class="html-eti">&lt;option&gt;</span> y <span class="html-eti">&lt;textarea&gt;</span>. Además, se pueden estructurar los
+controles con las etiquetas <span class="html-eti">&lt;fieldset&gt;</span> y
+<span class="html-eti">&lt;legend&gt;</span>. Por útlimo, la etiqueta <span class="html-eti">&lt;label&gt;</span> permite mejorar la accesibilidad de los
+controles.</p>
+
+<p>El navegador envía únicamente los datos de los controles contenidos en el
+formulario. En una misma página puede haber varios formularios que envíen datos
+al mismo o a diferentes agentes.</p>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Atributos">Atributos comunes de los controles: <span class="html-atri">name</span>, <span class="html-atri">value</span>, <span class="html-atri">disabled</span>, <span class="html-atri">readonly</span>,
+<span class="html-atri">tabindex</span> y <span class="html-atri">accesskey</span></h2>
+
+<p>El atributo <span class="html-atri">name</span> identifica al control. El
+formulario únicamente envía al servidor los datos de los controles que tienen
+establecido el atributo <span class="html-atri">name</span>, por tanto si un
+control no tiene establecido su atributo <span class="html-atri">name</span>,
+el control simplemente se ignora. Si hubiera varios controles con el mismo
+atributo <span class="html-atri">name</span>, el formulario envía todos los
+datos.</p>
+<hr class="corta">
+
+<p>El atributo <span class="html-atri">value</span> permite establecer el valor
+inicial de un control, aunque cada control lo utiliza de una forma ligeramente
+distinta. El único control sin atributo <span class="html-atri">value</span> es
+el área de texto <span class="html-eti">(&lt;textarea&gt;</span>).</p>
+
+<p>En algunos casos (botones) el valor se muestra al usuario y el usuario no
+puede modificarlo. En otros casos (cajas de texto, contraseña) el valor se
+muestra en la página y el usuario puede modificarlo. En otros casos (casillas
+de verificación, botones radio, opciones de menú, oculto, imagen) el valor no
+se muestra en la página y el usuario no puede modificarlo.</p>
+
+<p>En algunos casos (botones, oculto, botones radio) el atributo <span class="html-atri">value</span> es necesario. En otros casos (casilla de
+verificación, opciones de menú) es conveniente. En otros casos (cajas de texto,
+contraseña, imagen) puede omitirse. En el caso del selector de archivo, ni
+Internet Explorer ni Firefox parecen utilizarlo.</p>
+<hr class="corta">
+
+<p>El atributo <span class="html-atri">disabled</span> permite deshabilitar el
+control. Una vez deshabilitado, el control ni siquiera puede coger el foco.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;input type="submit" value="Enviar" <strong>disabled="disabled"</strong> /&gt;</pre>
+      </td>
+      <td class="resul">
+        <input type="submit" value="Enviar" disabled="disabled"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto" <strong>disabled="disabled"</strong> /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text" disabled="disabled"></td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>El atributo <span class="html-atri">readonly</span> permite que el control
+no sea modificable, aunque el control puede coger el foco.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;input type="submit" value="Enviar" <strong>readonly="readonly"</strong> /&gt;</pre>
+      </td>
+      <td class="resul">
+        <input type="submit" value="Enviar" readonly="readonly"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto" value="¡A que no me cambias!" <strong>readonly="readonly"</strong> /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text" readonly="readonly" value="¡A que no me cambias!"></td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>El atributo <span class="html-atri">tabindex</span> permite controlar el
+orden en que el foco pasa de un elemento a otro mediante el tabulador
+(<kbd>Tab</kbd> para avanzar y <kbd>Shift+Tab</kbd> para retroceder). Los
+valores de <span class="html-atri">tabindex</span> pueden ser números naturales
+(incluido el cero), no necesariamente consecutivos. Si no está presente, los
+controles se visitan en el orden en que aparecen en el texto. Si está presente,
+los controles se visitan de menor a mayor.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Texto 1" /&gt;<br>&lt;input type="text" name="texto2" value="Texto 2" /&gt;<br>&lt;input type="text" name="texto3" value="Texto 3" /&gt;<br>&lt;input type="text" name="texto4" value="Texto 4" /&gt;<br></pre>
+      </td>
+      <td class="resul"><input type="text" value="Texto 1" size="8" tabindex="1"> <input type="text" value="Texto 2" size="8" tabindex="1"> <input type="text" value="Texto 3" size="8" tabindex="1"> <input type="text" value="Texto 4" size="8" tabindex="1"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Texto 1" <strong>tabindex="5"</strong> /&gt;<br>&lt;input type="text" name="texto2" value="Texto 2" <strong>tabindex="7"</strong> /&gt;<br>&lt;input type="text" name="texto3" value="Texto 3" <strong>tabindex="6"</strong> /&gt;<br>&lt;input type="text" name="texto4" value="Texto 4" <strong>tabindex="8"</strong> /&gt;<br></pre>
+      </td>
+      <td class="resul"><input type="text" value="Texto 1" size="8" tabindex="5"> <input type="text" value="Texto 2" size="8" tabindex="7"> <input type="text" value="Texto 3" size="8" tabindex="6"> <input type="text" value="Texto 4" size="8" tabindex="8"></td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>El atributo <span class="html-atri">accesskey</span> permite definir teclas
+de acceso (atajos de teclado). El problema con las teclas de acceso es que a
+veces entran en conflicto con combinaciones de teclas ya definidas por el
+navegador o el sistema operativo.</p>
+
+<p>Para acceder a las teclas de acceso, cada navegador utiliza una combinación
+de teclas distinta:</p>
+<ul>
+  <li>Firefox utiliza la combinación <kbd>Alt+Shift+tecla</kbd></li>
+  <li>Internet Explorer utiliza tanto la combinación <kbd>Alt+tecla</kbd> como
+    la combinación <kbd>Alt+Shift+tecla</kbd></li>
+  <li>Google Chrome utiliza la combinación <kbd>Alt+tecla</kbd>, aunque en
+    algunos casos también permite utilizar <kbd>Alt+Shift+tecla</kbd></li>
+</ul>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"><img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Acceso con a" <strong>accesskey="a"</strong> /&gt;<br>&lt;input type="text" name="texto2" value="Acceso con e" <strong>accesskey="e"</strong> /&gt;<br>&lt;input type="text" name="texto3" value="Acceso con i" <strong>accesskey="i"</strong> /&gt;<br>&lt;input type="text" name="texto4" value="Acceso con o" <strong>accesskey="o"</strong> /&gt;<br></pre>
+      </td>
+      <td class="resul"><input type="text" value="Acceso con a" size="12" accesskey="a"> <input type="text" value="Acceso con e" size="12" accesskey="e"> <input type="text" value="Acceso con i" size="12" accesskey="i"> <input type="text" value="Acceso con o" size="12" accesskey="o"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Nota</strong>: Internet Explorer 9 puede acceder a un elemento con
+la letra <kbd>d</kbd> como letra de acceso, pero versiones anteriores no
+podían, ya que utilizaban la combinación <kbd>Alt+(Shift)+d</kbd> para acceder
+a la barra de dirección, como se comenta en la página de <a href="http://www.mclibre.org/consultar/amaya/otros/otros_diferencias_ie9_ie8.html#L1194">diferencias entre IE9 e
+IE8</a>. Firefox y Chrome sí que pueden acceder mediante <kbd>Alt+Shift+d</kbd>
+(la combinación <kbd>Alt+d</kbd> accede a la barra de dirección). </p>
+
+<p>En el caso de las teclas de acceso que no son las letras del alfabeto (los
+acentos no pueden ser teclas de acceso):</p>
+<ul>
+  <li>Firefox utiliza la combinación <kbd>Alt+Shift+tecla</kbd></li>
+  <li>Internet Explorer utiliza únicamente la combinación
+  <kbd>Alt+tecla</kbd></li>
+  <li>Google Chrome no permite utilizarlas</li>
+</ul>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Incorrecto en Chrome" title="Incorrecto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcX.png" width="44" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Acceso con 1" <strong>accesskey="1"</strong> /&gt;<br>&lt;input type="text" name="texto2" value="Acceso con 2" <strong>accesskey="2"</strong> /&gt;<br>&lt;input type="text" name="texto3" value="Acceso con 3" <strong>accesskey="3"</strong> /&gt;<br>&lt;input type="text" name="texto4" value="Acceso con 4" <strong>accesskey="4"</strong> /&gt;<br></pre>
+      </td>
+      <td class="resul"><input type="text" value="Acceso con 1" size="12" accesskey="1"> <input type="text" value="Acceso con 2" size="12" accesskey="2"> <input type="text" value="Acceso con 3" size="12" accesskey="3"> <input type="text" value="Acceso con 4" size="12" accesskey="4"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Incorrecto en Chrome" title="Incorrecto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcX.png" width="44" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Acceso con ," <strong>accesskey=","</strong> /&gt;<br>&lt;input type="text" name="texto2" value="Acceso con -" <strong>accesskey="."</strong> /&gt;<br>&lt;input type="text" name="texto3" value="Acceso con +" <strong>accesskey="+"</strong> /&gt;<br></pre>
+      </td>
+      <td class="resul"><input type="text" value="Acceso con ," size="12" accesskey=","> <input type="text" value="Acceso con ." size="12" accesskey="."> <input type="text" value="Acceso con +" size="12" accesskey="+"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si hay varios elementos con la misma tecla de acceso, o si hay varios
+elementos con la misma tecla de acceso en mayúsculas y minúsculas:</p>
+<ul>
+  <li>Firefox avanza de uno a otro con la combinación
+  <kbd>Alt+Shift+tecla</kbd></li>
+  <li>Internet Explorer avanza de uno a otro con la combinación
+    <kbd>Alt+tecla</kbd> y retrocede de uno a otro con
+    <kbd>Alt+Shift+tecla</kbd></li>
+  <li>Google Chrome no avanza de uno a otro</li>
+</ul>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Incorrecto en Chrome" title="Incorrecto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcX.png" width="44" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Acceso con z" <strong>accesskey="z"</strong> /&gt;<br>&lt;input type="text" name="texto2" value="Acceso con z" <strong>accesskey="z"</strong> /&gt;<br>&lt;input type="text" name="texto3" value="Acceso con z" <strong>accesskey="z"</strong> /&gt;<br></pre>
+      </td>
+      <td class="resul"><input type="text" value="Acceso con z" size="12" accesskey="z"> <input type="text" value="Acceso con z" size="12" accesskey="z"> <input type="text" value="Acceso con z" size="12" accesskey="z"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Incorrecto en Chrome" title="Incorrecto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcX.png" width="44" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto1" value="Acceso con w" <strong>accesskey="w"</strong> /&gt;
+&lt;input type="text" name="texto2" value="Acceso con W" <strong>accesskey="W"</strong> /<br>&lt;input type="text" name="texto3" value="Acceso con W" <strong>accesskey="W"</strong> /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text" value="Acceso con w" size="12" accesskey="w"> <input type="text" value="Acceso con W" size="12" accesskey="W"> <input type="text" value="Acceso con W" size="12" accesskey="W"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Controles">Controles</h2>
+
+<h3 id="n">Botones: <span class="html-eti">&lt;input /&gt;</span> y <span class="html-eti">&lt;button&gt;</span></h3>
+
+<p>Los botones se crean mediante la etiqueta <span class="html-eti">&lt;button&gt;</span>, aunque los botones más usuales en un
+formulario (los botones Submit y Reset) se pueden crear también con la etiqueta
+<span class="html-eti">&lt;input /&gt;</span>.</p>
+
+<p>Normalmente los botones no suelen llevar atributo <span class="html-atri">name</span>, pero se puede poner si se quiere (tendría
+sentido si un formulario contuviera dos botones de envío y quisieramos saber en
+cuál de ellos ha hecho clic el usuario, pero esto no es muy habitual).</p>
+
+<h4 id="Reset1">Botones Submit y Reset mediante <span class="html-eti">&lt;input /&gt;</span></h4>
+
+<p>El botón Submit es el que permite al usuario remitir los datos al servidor.
+Se crea mediante una etiqueta <span class="html-eti">&lt;input /&gt;</span>
+cuyo atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">submit</span>. El texto que se muestra en el botón se
+define mediante el atributo <span class="html-atri">value</span>. </p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="submit" value="Submit"</strong> /&gt;</pre>
+      </td>
+      <td class="resul">
+        <input type="submit" value="Submit"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="submit" value="Enviar"</strong> /&gt;</pre>
+      </td>
+      <td class="resul">
+        <input type="submit" value="Enviar"></td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>El botón Reset restablece los valores iniciales del formulario. Se crea
+mediante una etiqueta <span class="html-eti">&lt;input /&gt;</span> cuyo
+atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">reset</span>. El texto que se muestra en el botón se
+define mediante el atributo <span class="html-atri">value</span>. </p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="reset" value="Reset"</strong> /&gt;</pre>
+      </td>
+      <td class="resul">
+        <input type="reset" value="Reset" name="Reset"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="reset" value="Borrar todo"</strong> /&gt;</pre>
+      </td>
+      <td class="resul">
+        <input type="reset" value="Borrar todo" name="Reset"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El atributo <span class="html-atri">value</span> sólo puede contener texto,
+no imágenes.</p>
+
+<h4 id="mediante">Botones Submit y Reset mediante <span class="html-eti">&lt;button&gt;</span></h4>
+
+<p>La etiqueta <span class="html-eti">&lt;button&gt;</span> permite crear
+botones de tipo <span class="html-atri-valor">submit</span> o <span class="html-atri-valor">reset</span> o botones de tipo general que deben
+asociarse a scripts para hacer algo. Los botones <span class="html-atri-valor">submit</span> o <span class="html-atri-valor">reset</span> se crean mediante el atributo <span class="html-atri">type</span> con el valor <span class="html-atri-valor">submit</span> o <span class="html-atri-valor">reset</span>. El botón de uso general se crea mediante
+el atributo <span class="html-atri">type</span> con el valor <span class="html-atri-valor">button</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;button <strong>type="submit"</strong>&gt;Enviar&lt;/button&gt;</pre>
+      </td>
+      <td class="resul"><button type="submit">Enviar</button></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;button <strong>type="reset"</strong>&gt;Borrar todo&lt;/button&gt;</pre>
+      </td>
+      <td class="resul"><button type="reset">Borrar todo</button></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;button <strong>type="button"</strong>&gt;Botón&lt;/button&gt;</pre>
+      </td>
+      <td class="resul"><button type="button">Botón</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los botones <span class="html-eti">&lt;button&gt;</span> pueden contener
+texto e imágenes (o estructuras más complejas, pero no mapas de imágenes).</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;button&gt;
+  &lt;img alt="cdlibre.org" title="cdlibre.org" src="cdlibre.png" width="16" height="16" /&gt;
+  Botón
+&lt;/button&gt;</pre>
+      </td>
+      <td class="resul"><button><img alt="cdlibre.org" title="cdlibre.org" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/cdlibre.png" width="16" height="16"> Botón</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si un botón no lleva el atributo <span class="html-atri">type</span>, se
+comporta como un botón de tipo <span class="html-atri-valor">submit</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td></td>
+      <td class="codhtml"><pre>&lt;button&gt;Botón&lt;/button&gt;</pre>
+      </td>
+      <td class="resul"><button>Botón</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="Caja">Caja de texto: <span class="html-eti">&lt;input type="text"
+/&gt;</span>, <span class="html-eti">&lt;input type="password" /&gt;</span> y
+<span class="html-eti">&lt;textarea&gt;</span></h3>
+
+<p>Existen dos tipos de cajas de texto: de una sola línea y de varias líneas</p>
+
+<h4 id="Caja1">Caja de texto de una sola línea: <span class="html-atri-valor"><span class="html-eti">&lt;input type="text"
+/&gt;</span></span> y <span class="html-eti">&lt;input type="password"
+/&gt;</span></h4>
+
+<p>Las cajas de texto de una sola línea se crean mediante la etiqueta <span class="html-eti">&lt;input /&gt;</span> cuyo atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">text</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="text"</strong> name="texto" /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El atributo <span class="html-atri">value</span> (optativo) contiene el
+valor inicial de la caja de texto. El atributo <span class="html-atri">size</span> indica el tamaño en caracteres de la caja en la
+pantalla (por omisión, las cajas suelen tener 20 carácteres de tamaño). El
+atributo <span class="html-atri">maxlength</span> indica el número máximo de
+carácteres que puede escribir el usuario.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto" <strong>value="Escribe algo"</strong> /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text" value="Escribe algo"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto" <strong>size="10"</strong> /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text" size="10"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="text" name="texto" <strong>maxlength="5"</strong> /&gt;</pre>
+      </td>
+      <td class="resul"><input type="text" maxlength="5"></td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>Existe una caja de texto de una sola línea especial para escribir
+contraseñas que se crea mediante la etiqueta <span class="html-eti">&lt;input
+/&gt;</span> cuyo atributo <span class="html-atri">type</span> tiene el valor
+<span class="html-atri-valor">password</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="password"</strong> name="contrasena" /&gt;</pre>
+      </td>
+      <td class="resul"><input type="password"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Al escribir en una caja de contraseña, en vez de letras aparecen puntos
+gruesos. Es importante señalar que estas cajas no proporcionan ninguna
+seguridad en la transmisión, simplemente ocultan al usuario lo que este
+escribe.</p>
+<hr class="corta">
+
+<h4 id="Caja2">Caja de texto de varias líneas: <span class="html-atri-valor"><span class="html-eti">&lt;textarea&gt;</span></span></h4>
+
+<p>Las cajas de texto de varias líneas se crean mediante la etiqueta <span class="html-eti">&lt;textarea&gt;</span>. Los atributos obligatorios <span class="html-atri">rows</span> y <span class="html-atri">cols</span> establecen
+el número de filas y columnas de la caja. El atributo <span class="html-atri">value</span> (optativo) contiene el valor inicial de la caja
+de texto de varías líneas. </p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;textarea name="texto" <strong>rows="4" cols="20"</strong>&gt;&lt;/textarea&gt;</pre>
+      </td>
+      <td class="resul"><textarea rows="4" cols="20"></textarea></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;textarea name="texto" <strong>rows="3" cols="30"</strong>&gt;&lt;/textarea&gt;</pre>
+      </td>
+      <td class="resul"><textarea rows="3" cols="30"></textarea></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;textarea name="texto" <strong>rows="4" cols="40"</strong>&gt;Escribe algo&lt;/textarea&gt;</pre>
+      </td>
+      <td class="resul"><textarea rows="4" cols="40">Escribe algo</textarea></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="Casilla">Casilla de verificación: <span class="html-eti">&lt;input
+type="checkbox" /&gt;</span></h3>
+
+<p>Las casillas de verificación se crean mediante la etiqueta <span class="html-eti">&lt;input /&gt;</span> cuyo atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">checkbox</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="checkbox"</strong> name="casilla" /&gt;Casilla 1</pre>
+      </td>
+      <td class="resul"><input type="checkbox">Casilla 1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si el atributo <span class="html-atri">checked</span> tiene el valor <span class="html-atri-valor">checked</span>, la casilla aparece marcada.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="checkbox" name="casilla" <strong>checked="checked"</strong> /&gt;Casilla 1</pre>
+      </td>
+      <td class="resul"><input type="checkbox" checked="checked">Casilla
+      1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Las casillas de verificación sólo se envían si se han marcado. El atributo
+<span class="html-atri">value</span> contiene el valor que envia el formulario
+si la casilla de verificación está marcada. Si el atributo <span class="html-atri">value</span> no está establecido, el formulario envía el
+valor <span class="html-atri-valor">on</span>.</p>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="radio1">Botón radio: <span class="html-eti">&lt;input type="radio"
+/&gt;</span></h3>
+
+<p>Los botones radio se crean mediante la etiqueta <span class="html-eti">&lt;input /&gt;</span> cuyo atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">radio</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="radio"</strong> <strong>name="radio"</strong> 
+value="1" /&gt;Opción 1</pre>
+      </td>
+      <td class="resul"><input type="radio" name="radio">Opción 1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Lo botones radio que tienen el mismo atributo <span class="html-atri">name</span> forman un grupo, es decir, que si se marca uno de
+ellos se desmarca automáticamente el resto.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="radio" <strong>name="radio"</strong> value="1" /&gt;Opción 1&lt;br /&gt;<br>&lt;input type="radio" <strong>name="radio"</strong> value="2" /&gt;Opción 2</pre>
+      </td>
+      <td class="resul"><input type="radio" name="radio">Opción 1<br>
+        <input type="radio" name="radio">Opción 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los dos ejemplos anteriores, aunque estén separados, forman el mismo botón
+radio ya que su atributo <span class="html-atri">name</span> tiene el mismo
+valor (en este caso "radio"). Se puede comprobar pulsando en uno de los
+ejemplos y observando como se desmarca el otro ejemplo. Para que fueran
+independientes, bastaría con que sus atributos <span class="html-atri">name</span> fueran distintos, como en el ejemplo
+siguiente:</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="radio" <strong>name="radio1"</strong> value="1" /&gt;Opción 1&lt;br /&gt;<br>&lt;input type="radio" <strong>name="radio2"</strong> value="2" /&gt;Opción 2</pre>
+      </td>
+      <td class="resul"><input type="radio" name="radio1">Opción 1<br>
+        <input type="radio" name="radio2">Opción 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si uno de los botones tiene el atributo <span class="html-atri">checked</span> con el valor <span class="html-atri-valor">checked</span>, el botón aparece marcado.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="radio" <strong>name="radio3"</strong> value="1" /&gt;Opción 1&lt;br /&gt;<br>&lt;input type="radio" <strong>name="radio3"</strong> value="2" <strong>checked="checked"</strong> /&gt;Opción 2</pre>
+      </td>
+      <td class="resul"><input type="radio" name="radio3">Opción 1<br>
+        <input type="radio" name="radio3" checked="checked">Opción 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los botones radio sólo se envían si se han marcado. El atributo <span class="html-atri">value</span> contiene el valor que envia el formulario si el
+botón radio está marcado.Si el atributo <span class="html-atri">value</span> no
+está establecido, el formulario envía el valor <span class="html-atri-valor">on</span>, así que para poder saber cuál ha sido la
+opción elegida por el usuario es necesario establecer con valores distintos los
+atributos <span class="html-atri">value</span> de todos los elementos de un
+botón radio .</p>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="s">Menú: <span class="html-eti">&lt;select&gt;</span></h3>
+
+<p>Los menús se crean mediante la etiqueta <span class="html-eti">&lt;select&gt;</span>. Cada opción del menú se define mediante
+la etiqueta <span class="html-eti">&lt;option&gt;</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre><strong>&lt;select name="menu"&gt;</strong>
+&nbsp;&nbsp;<strong>&lt;option selected="selected" value="1"&gt;Uno&lt;/option&gt;<br></strong>&nbsp;&nbsp;&lt;option value="2"&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="3"&gt;Tres&lt;/option&gt;<br><strong>&lt;/select&gt;</strong></pre>
+      </td>
+      <td class="resul">
+        <select name="Menu">
+          <option selected="selected">Uno</option>
+          <option>Dos</option>
+          <option>Tres</option>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El atributo <span class="html-atri">selected</span> indica la opción por
+omisión.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;select name="menu"&gt;<br>&nbsp;&nbsp;&lt;option value="1"&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="2"&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="3" <strong>selected="selected"</strong>&gt;Tres&lt;/option&gt;<br>&lt;/select&gt;</pre>
+      </td>
+      <td class="resul">
+        <select name="Menu">
+          <option>Uno</option>
+          <option>Dos</option>
+          <option selected="selected">Tres</option>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si ningún elemento posee el atributo <span class="html-atri">selected</span>, tanto Firefox como Internet Explorer
+muestran la primera opción del menú.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;select name="menu"&gt;<br>&nbsp;&nbsp;&lt;option value="1"&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="2"&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="3"&gt;Tres&lt;/option&gt;<br>&lt;/select&gt;</pre>
+      </td>
+      <td class="resul">
+        <select name="Menu">
+          <option selected="selected">Uno</option>
+          <option>Dos</option>
+          <option>Tres</option>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para evitar malentendidos y forzar al usuario a elegir un valor, se suele
+incluir una opción en blanco al principio de los menús</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;select name="menu"&gt;<br>&nbsp;&nbsp;<strong>&lt;option value="1" selected="selected"&gt;&lt;/option&gt;<br></strong>&nbsp;&nbsp;&lt;option value="2"&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="3"&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="4"&gt;Tres&lt;/option&gt;<br>&lt;/select&gt;</pre>
+      </td>
+      <td class="resul">
+        <select name="Menu">
+          <option selected="selected"></option>
+          <option>Uno</option>
+          <option>Dos</option>
+          <option>Tres</option>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El atributo <span class="html-atri">size</span> permite definir la altura
+del control</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;select name="menu" <strong>size="3"</strong>&gt;<br>&nbsp;&nbsp;&lt;option value="1" selected="selected"&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="2"&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="3"&gt;Tres&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="4"&gt;Cuatro&lt;/option&gt;<br>&lt;/select&gt;</pre>
+      </td>
+      <td class="resul">
+        <select name="Menu" size="3">
+          <option selected="selected">Uno</option>
+          <option>Dos</option>
+          <option>Tres</option>
+          <option>Cuatro</option>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El atributo <span class="html-atri">multiple</span> permite elegir varias
+opciones simultáneamente (con ayuda de la tecla <kbd>Control</kbd> o
+<kbd>Mayúsculas</kbd>)</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;select name="menu" <strong>size="4" multiple="multiple"</strong>&gt;<br>&nbsp;&nbsp;&lt;option value="1" selected="selected"&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="2"&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="3"&gt;Tres&lt;/option&gt;<br>&nbsp;&nbsp;&lt;option value="4"&gt;Cuatro&lt;/option&gt;<br>&lt;/select&gt;</pre>
+      </td>
+      <td class="resul">
+        <select name="Menu" size="4" multiple="multiple">
+          <option selected="selected">Uno</option>
+          <option>Dos</option>
+          <option>Tres</option>
+          <option>Cuatro</option>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Se pueden agrupar opciones utilizando la etiqueta <span class="html-eti">&lt;optgroup&gt;</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;select name="menu"&gt;<br>&nbsp;&nbsp;&lt;option selected="selected"&gt;&lt;/option&gt;<br>&nbsp;&nbsp;<strong>&lt;optgroup label="Grupo1"&gt;<br></strong>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="1"&gt;Opción uno&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="2"&gt;Opción dos&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="3"&gt;Opción tres&lt;/option&gt;<br>  <strong>&lt;/optgroup&gt;<br>&nbsp;&nbsp;&lt;optgroup label="Grupo2"&gt;<br></strong>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="4"&gt;Opción cuatro&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="5"&gt;Opción cinco&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="6"&gt;Opción seis&lt;/option&gt;<br>&nbsp;&nbsp;<strong>&lt;/optgroup&gt;<br></strong>&lt;/select&gt;</pre>
+      </td>
+      <td class="resul">
+        <select name="Menu">
+          <option selected="selected"></option>
+          <optgroup label="Grupo1">
+            <option>Opción uno</option>
+            <option>Opción dos</option>
+            <option>Opción tres</option>
+          </optgroup>
+          <optgroup label="Grupo2">
+            <option>Opción cuatro</option>
+            <option>Opción cinco</option>
+            <option>Opción seis</option>
+          </optgroup>
+        </select>
+         </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El atributo <span class="html-atri">value</span> de cada opción contiene el
+valor que envia el formulario si la opción está elegida. Si no se define el
+atributo <span class="html-atri">value</span>, el formulario envía como valor
+el texto que aparece en el menú.</p>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="Selector">Selector de archivo: <span class="html-eti">&lt;input
+type="file" /&gt;</span></h3>
+
+<p>El selector de archivo se crea mediante la etiqueta <span class="html-eti">&lt;input /&gt;</span> cuyo atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">file</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="file"</strong> name="archivo" /&gt;</pre>
+      </td>
+      <td class="resul"><input type="file"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Aunque la recomendación indica que el atributo <span class="html-atri">value</span> puede interpretarse como el archivo elegido por
+omisión, ni Internet Explorer ni Firefox utilizan este atributo.</p>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="Imagen">Imagen: <span class="html-eti">&lt;input type="image"
+/&gt;</span></h3>
+
+<p>El control de tipo imagen inserta una imagen que funciona como un botón
+(aunque los navegadores no le dan relieve como a los botones). Al hacer clic en
+un punto de la imagen se envía el formulario (como si se hubiera pulsado un
+botón <span class="html-atri-valor">submit</span>) y se envían las coordenadas
+del punto en el que se ha hecho clic (junto con los valores de los otros
+controles del formulario).</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="image"</strong> name="GNU" alt="GNU" 
+  src="gnu.jpg" /&gt;</pre>
+      </td>
+      <td class="resul"><input type="image" name="GNU" alt="GNU" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gnu-head-sm.jpg"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si se define el atributo <span class="html-atri">value</span>, el formulario
+envía también el nombre del control con el valor del atributo.</p>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h3 id="Control">Control oculto: <span class="html-eti">&lt;input type="hidden"
+/&gt;</span></h3>
+
+<p>El control oculto se crea mediante la etiqueta <span class="html-eti">&lt;input /&gt;</span> cuyo atributo <span class="html-atri">type</span> tiene el valor <span class="html-atri-valor">hidden</span>. Lógicamente, los navegadores no muestran
+estos controles en la pantalla (aunque pueden verse en el código fuente). Se
+utilizan para almacenar información que de otro modo se perdería (por ejemplo,
+cuando hay varios formularios encadenados).</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input <strong>type="hidden"</strong> name="nombre" value="pepito" /&gt;</pre>
+      </td>
+      <td class="resul"><input type="hidden"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Estructura">Grupos de controles: <span class="html-eti">&lt;fieldset&gt;</span></h2>
+
+<p>La etiqueta <span class="html-eti">&lt;fieldset&gt;</span> permite agrupar
+un conjunto de controles. Los navegadores muestran una caja alrededor de cada
+grupo de controles.</p>
+
+<p>La etiqueta <span class="html-eti">&lt;legend&gt;</span> permite añadir una
+leyenda al <span class="html-eti">&lt;fieldset&gt;</span>. Los navegadores
+muestran la leyenda sobre el borde que rodea el grupo de controles.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre><strong>&lt;fieldset&gt;</strong>
+&nbsp;&nbsp;<strong>&lt;legend&gt;</strong>Formulario<strong>&lt;/legend&gt;</strong><br>&nbsp;&nbsp;&lt;input type="text" name="texto"/&gt;&lt;br/&gt;<br>&nbsp;&nbsp;&lt;select name="menu"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option selected="selected"&gt;Tres&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br><strong>&lt;/fieldset&gt;</strong></pre>
+      </td>
+      <td class="resul"><fieldset>
+          <legend>Formulario</legend>
+          <input type="text"><br>
+
+          <select name="Menu">
+            <option>Uno</option>
+            <option>Dos</option>
+            <option selected="selected">Tres</option>
+          </select>
+           </fieldset>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Puede haber varias etiquetas <span class="html-eti">&lt;legend&gt;</span>,
+pero sólo la primera se ve sobre el borde, el resto se ven dentro del <span class="html-eti">&lt;fieldset&gt;</span>.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre><strong>&lt;fieldset&gt;</strong><br>&nbsp;&nbsp;<strong>&lt;legend&gt;</strong>Formulario<strong>&lt;/legend&gt;<br></strong>&nbsp;&nbsp;<strong>&lt;legend&gt;</strong>Segunda leyenda<strong>&lt;/legend&gt;<br></strong>&nbsp;&nbsp;&lt;p&gt;&lt;input type="text" name="texto" /&gt;&lt;br/&gt;<br>&nbsp;&nbsp;&lt;select name="menu"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Uno&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&gt;Dos&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option selected="selected"&gt;Tres&lt;/option&gt;&lt;/p&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br><strong>&lt;/fieldset&gt;</strong></pre>
+      </td>
+      <td class="resul"><fieldset>
+          <legend>Formulario</legend>
+          <legend>Segunda leyenda</legend>
+
+          <p><input type="text"><br>
+
+          <select name="Menu">
+            <option>Uno</option>
+            <option>Dos</option>
+            <option selected="selected">Tres</option>
+          </select>
+           </p>
+        </fieldset>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Etiqueta">Accesibilidad: <span class="html-eti">&lt;label&gt;</span></h2>
+
+<p>La etiqueta <span class="html-eti">&lt;label&gt;</span> permite asociar un
+control con un texto, de manera que mejore la accesibilidad de los
+formularios.</p>
+
+<p>La asociación entre el control y la etiqueta <span class="html-eti">&lt;label&gt;</span> puede ser implícita o explícita. Se dice
+que la relación es implícita cuando el control se encuentra en el interior de
+la etiqueta. Se dice que la relación es explícita cuando la etiqueta <span class="html-eti">&lt;label&gt;</span> contiene el atributo <span class="html-atri">for</span>, que indica el control afectado (el control tiene
+entonces que tener establecido el atributo <span class="html-atri">id</span>).</p>
+
+<p>Por ejemplo, en el caso de una casilla de verificación, la etiqueta <span class="html-eti">&lt;label&gt;</span> permite que la casilla se marque o
+desmarque haciendo clic en el texto, como se muestra en los ejemplos
+siguientes:</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="checkbox" name="casilla" /&gt;Casilla 1</pre>
+      </td>
+      <td class="resul"><input type="checkbox">Casilla 1</td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre><strong>&lt;label&gt;</strong>&lt;input type="checkbox" name="casilla" /&gt;Casilla 1<strong>&lt;/label&gt;</strong></pre>
+      </td>
+      <td class="resul"><label><input type="checkbox">Casilla 1</label></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>&lt;input type="checkbox" name="casilla" id="casilla1" /&gt;<br><strong>&lt;label for="casilla1"&gt;</strong>Casilla 1<strong>&lt;/label&gt;</strong></pre>
+      </td>
+      <td class="resul"><input type="checkbox" id="casilla1"><label for="casilla1">Casilla 1</label></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>En el caso de la cajas de texto <span class="html-eti">&lt;input type="text"
+/&gt;</span>, la etiqueta <span class="html-eti">&lt;label&gt;</span> permite
+que el cursor se sitúe en la caja de texto haciendo clic en el texto, como se
+muestra en los ejemplos siguientes:</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre>Nombre: &lt;input type="text" name="casilla" /&gt;</pre>
+      </td>
+      <td class="resul">Nombre: <input type="text"></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre><strong>&lt;label&gt;</strong>Nombre: &lt;input type="text" name="casilla" /&gt;<strong>&lt;/label&gt;</strong></pre>
+      </td>
+      <td class="resul"><label>Nombre: <input type="text"></label></td>
+    </tr>
+    <tr>
+      <td><img alt="Correcto en Firefox" title="Correcto en Firefox" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ffO.png" width="34" height="32"> <img alt="Correcto en Internet Explorer" title="Correcto en Internet Explorer" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/ieO.png" width="35" height="32"> <img alt="Correcto en Chrome" title="Correcto en Chrome" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/gcO.png" width="32" height="32"></td>
+      <td class="codhtml"><pre><strong>&lt;label for="text1"&gt;</strong>Nombre:<strong>&lt;/label&gt;</strong>&lt;input type="text" name="casilla" id="text1" /&gt;</pre>
+      </td>
+      <td class="resul"><label for="t1">Nombre:</label> <input type="text" id="t1"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html#">Volver al principio de la página</a></p>
+<address id="ultmod">
+  Esta página forma parte del curso "Páginas web HTML / XHTML y hojas de estilo
+  CSS" disponible en <a href="http://www.mclibre.org/">http://www.mclibre.org</a><br>
+  Autor: Bartolomé Sintes Marco<br>
+  Última modificación: 13 de octubre de 2013 
+</address>
+
+<p class="licencia"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/"><img alt="Creative Commons License" style="border-width:0" src="./Formularios. HTML. Páginas web HTML   XHTML y hojas de estilo CSS. Bartolomé Sintes Marco_files/88x31.png"></a> <br>
+Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/">licencia de Creative
+Commons Reconocimiento-CompartirIgual 3.0 España</a>.</p>
+
+
+</body></html>

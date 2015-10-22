@@ -1,0 +1,43 @@
+Como siempre estoy siguindo el manual de www.codecademy.com
+___________________________________________________________
+
+<?php
+/*
+* Si queremos escribir un programa que pregunte si tu nombre tiene más de 7 letras,
+* si la respuesta es sí, podemos responder con "¡Tienes un nombre largo!".
+* Podemos hacer esto con una sentencia if.
+
+      $falso = false;
+      $verdadero = true;
+        if($falso == $verdadero){
+            echo "La condición es verdadera;
+            }else{
+                echo "La condición es falsa";
+                }
+      ?>
+--------------------------------------------------------
+$edad = 36;
+if ($edad >= 18){
+	print "Eres mayor de edad";
+	}else{
+		print "Eres menor de edad";
+	}
+?>
+--------------------------------------------------------
+if (condición) {
+
+} elseif (condición) {
+
+} else {
+
+}
+--------------------------------------------------------
+    <?php
+        if(3<1){
+            print "¿He olvidado las matesd del cole?";
+        }elseif{
+            print "¿que es esto de elseif?";
+        }else{
+        "¿Otra condición, esto no puede funcionar?";}
+    ?>
+

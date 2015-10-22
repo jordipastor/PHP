@@ -1,0 +1,132 @@
+Más teoría sacada de www.codecademy.com/es
+_____________________________________________
+
+Si una condición es verdadera, ejecuta un bloque de código; es boleana.
+Una sentencia switch es útil cuando tienes una serie de sentencias
+if/elseif/else con múltiples expresiones que dependen del mismo valor.
+Las sentencias switch también dan eficiencia y fluidez.
+
+<?php
+    switch (2) {
+        case 0:
+            echo 'El valor es 0';
+            break;
+        case 1:
+            echo 'El valor es 1';
+            break;
+        case 2:
+            echo 'El valor es 2';
+            break;
+        default:
+            echo "El valor no es ni 0, 1 ni 2";
+    }
+    ?>
+-----------------------------------------------------------------
+
+Como siempre esto viene de www.codecademy.com/es
+________________________________________________
+
+Ejemplo de switch:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+    <?php
+    $fruta = "Manzana";
+    
+    switch ($fruta) {
+        case 0: 'Manzana':
+            echo "Rica.";
+            break;
+        default:
+            print "La fruta es nutritiva";
+    }
+    
+    ?>
+    </body>
+</html>
+--------------------------------------------------
+
+Casos Múltiples
+A veces querés hacer múltiples expresiones con el mismo resultado. Considerá la siguiente sentencia if:
+
+if ($i == 1 ||
+    $i == 2 ||
+    $i == 3) {
+ echo '$i está en algún punto entre 1 y 3.';
+}
+
+Con una sentencia switch podés hacer esto agregando varios case uno atrás del otro,
+sin interrupción. Esto se llama falling through. El código siguiente funciona exactamente igual que la sentencia if:
+case 1:
+case 2:
+case 3:
+    echo '$i está en algún punto entre  1 y 3.';
+    break;
+
+------------------Ejercicio propuesto---------
+
+<?php
+    $i = 5;
+    
+    switch ($i) {
+        case 0:
+            echo '$i es 0.';
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            echo '$i está en algún lado entre  1 y 5.';
+            break;
+        case 6:
+        case 7:
+            echo '$i es 6 o 7.';
+            break;
+        default:
+            echo "NO es cuánto es \$i.";
+    }
+?>
+
+------------------------------------------------
+Usar "Endswitch". Azúcar sintáctica
+Tienes dos formas de crear un switch.
+Primero, la forma en que hicimos los ejercicios anteriores:
+switch ($i) {
+}
+Y la segunda la sintaxis alternativa Existe para dar azúcar sintáctica (syntactic sugar).
+
+No hay diferencia cuando se usa la sintaxis de llave (primer ejemplo) o la sintaxis alternativa (segundo ejemplo);
+solo da fluidez, por lo tanto se usa cuando se mezclan códigos HTML y PHP en el mismo archivo.
+
+switch ($i):
+
+endswitch;
+
+----------Ejemplo de endswitch----------------
+//Es exactamente igual que el ejemplo anterior, solo que añadimos el endswitch al final.
+<?php
+$i = 5;
+switch ($i):
+    case 0:
+        echo '$i es 0.';
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        echo '$i está en algún lado entre  1 y 5.';
+        break;
+    case 6:
+    case 7:
+        echo '$i es 6 o 7.';
+        break;
+    default:
+        echo "NO es cuánto es \$i.";
+endswitch;
+?>

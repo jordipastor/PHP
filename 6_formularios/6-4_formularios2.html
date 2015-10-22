@@ -1,0 +1,1151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0070)http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  
+  <title>Recogida de datos. PHP. Bartolomé Sintes Marco</title>
+  <meta name="generator" content="amaya 9.3, see http://www.w3.org/Amaya/">
+  <link href="./Recogida de datos en PHP_files/mclibre_php.css" rel="stylesheet" type="text/css" title="Color">
+  <link href="./Recogida de datos en PHP_files/mclibre_php_bn.css" rel="alternate stylesheet" type="text/css" title="Blanco y negro">
+  <link rel="shortcut icon" href="http://www.mclibre.org/consultar/php/varios/mclibre.ico">
+  <link rel="stylesheet" href="http://www.mclibre.org/consultar/php/varios/highlight-php.css">
+  <script type="text/javascript" src="./Recogida de datos en PHP_files/highlight.pack.js">
+  </script>
+  <script type="text/javascript">
+hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<h1><a href="http://www.mclibre.org/consultar/php/index.html"><img alt="Volver al índice" src="./Recogida de datos en PHP_files/indice.png" width="61" height="50" id="vpp" title="Volver al índice"></a> Recogida de datos</h1>
+
+<div class="toc">
+<ul>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Recogida">Matriz $_REQUEST</a></li>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Recogida1">Rerefencia a $_REQUEST dentro y fuera de
+  cadenas</a></li>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Comprobaci">Comprobación de existencia</a></li>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Seguridad">Seguridad en las entradas</a> 
+    <ul>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Comillas">Comillas mágicas (magic quotes)</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Utilizaci">Utilización de variables</a></li>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Salida">Salida de datos</a> 
+    <ul>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#cter">El carácter &amp; (ampersand)</a></li>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#cter1">El carácter " (comillas)</a></li>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#L1041">Solución general</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Funciones">Funciones de recogida de datos</a> 
+    <ul>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Recogida2">Recogida de un dato</a></li>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Recogida3">Recogida de un dato con valor
+      predeterminado</a></li>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#Recogida21">Recogida de una matriz de una dimensión</a></li>
+      <li><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#L1250">Recoger y recortar los datos</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+<hr>
+
+<h2 id="Recogida">Matriz $_REQUEST</h2>
+
+<p>Cuando se envía un formulario, PHP almacena la información recibida en una
+matriz llamada <a href="http://www.php.net/manual/es/language.variables.external.php" class="php-var">$_REQUEST</a>. El número de valores recibidos y los valores
+recibidos dependen tanto del formulario como de la acción del usuario.</p>
+
+<p>Cualquier control se envía solamente si está establecido su atributo <span class="html-atri">name</span>. El atributo <span class="html-atri">name</span>
+del control puede contener cualquier carácter (números, acentos, guiones, etc),
+pero si contiene espacios, los espacios se sustituyen por guiones bajos (_).
+Cada control crea un elemento de la matriz $_REQUEST, que se identifica como
+$_REQUEST[<span class="html-atri-valor">valor_del_atributo_name</span>] y que
+contiene el valor entregado por el formulario (en su caso).</p>
+
+<p>El siguiente ejemplo muestra un ejemplo de formulario:</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td class="codhtml"><pre><code class="language-html xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"ejemplo.php"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Nombre: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"nombre"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"Enviar"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><p>Nombre: <input type="text" name="texto" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Mientras se está programando, para comprobar que el fichero php está
+recibiendo la información enviada por el control, lo más fácil es utilizar la
+función <a href="http://www.php.net/manual/es/function.print-r.php"><span class="php-fun">print_r($matriz)</span></a> para mostrar el contenido de la
+matriz $_REQUEST. Una vez se ha comprobado que la información llega
+correctamente, la línea se debe comentar o eliminar.</p>
+
+<p>El siguiente ejemplo muestra lo que escribiría el programa PHP si recibiera
+la información del formulario anterior.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html"><p>Nombre: <input type="text" name="texto" value="Pepito Conejo" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; 
+print_r(<span class="variable">$_REQUEST</span>); 
+<span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array
+(
+    [nombre] =&gt; Pepito Conejo
+)</pre>
+
+        <p>Su nombre es Pepito Conejo</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Conviene colocar etiquetas <span class="html-eti">&lt;pre&gt;</span>
+alrededor del print_r($_REQUEST) para facilitar la visualización de los
+valores.</p>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Recogida1">Rerefencia a $_REQUEST dentro y fuera de cadenas</h2>
+
+<p>Al hacer referencia a los elementos de la matriz $_REQUEST, hay que tener en
+cuenta si la referencia se encuentra dentro de una cadena o fuera de ella.</p>
+<ul>
+  <li>Si se hace referencia dentro de una cadena al control de nombre "nombre",
+    se debe escribir $_REQUEST[nombre] (sin comillas). Si se escribe
+    $_REQUEST['nombre'] (con comillas) se produce un error. 
+
+    <table class="ejemplo">
+      <tbody>
+        <tr>
+          <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST['nombre']&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+          </td>
+          <td class="resul-html"><strong>Parse error</strong>: parse error,
+            unexpected T_ENCAPSED_AND_WHITESPACE, expecting T_STRING or
+            T_VARIABLE or T_NUM_STRING in <strong>ejemplo.php</strong> on line
+            <strong>2</strong></td>
+        </tr>
+        <tr>
+          <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+          </td>
+          <td class="resul-html">Su nombre es Pepito Conejo</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Si se hace referencia fuera de una cadena al control de nombre "nombre",
+    se debe escribir $_REQUEST['nombre'] (con comillas). Si se escribe
+    $_REQUEST[nombre] (sin comillas) se produce un aviso. 
+
+    <table class="ejemplo">
+      <tbody>
+        <tr>
+          <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es "</span>.<span class="variable">$_REQUEST</span>[nombre].<span class="string">"&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+          </td>
+          <td class="resul-html"><strong>Notice</strong>: Use of undefined
+            constant nombre - assumed 'nombre' in <strong>ejemplo.php</strong>
+            on line <strong>2</strong><br>
+            Su nombre es Pepito Conejo</td>
+        </tr>
+        <tr>
+          <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es "</span>.<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>].<span class="string">"&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+          </td>
+          <td class="resul-html">Su nombre es Pepito Conejo</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Comprobaci">Comprobación de existencia</h2>
+
+<p>La mayoría de controles aparecen en la matriz $_REQUEST aunque el usuario no
+escriba nada en el formulario. El valor almacenado es una cadena vacía, pero
+está definida. Si el programa supone que se ha introducido algún valor, el
+resultado puede confundir al usuario ...</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html"><p>Nombre: <input type="text" name="texto" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array (
+    [nombre] =&gt; 
+)</pre>
+
+        <p>Su nombre es</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>... por lo que conviene incluir una estructura if ... else que considere la
+posiblidad de que no se haya escrito nada en el formulario:</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html"><p>Nombre: <input type="text" name="texto" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">if</span> (<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>] == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No has escrito ningún nombre&lt;/p&gt;"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array (
+    [nombre] =&gt; 
+)</pre>
+
+        <p>No has escrito ningún nombre</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>Sin embargo, las casillas de verificación y los botones radio solamente
+están definidos en la matriz $_REQUEST si se han marcado en el formulario. Por
+ejemplo, si en el siguiente formulario:</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td class="codhtml"><pre><code class="language-html xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"ejemplo.php"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Deseo recibir información: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">name</span>=<span class="value">"acepto"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"Enviar"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><p>Deseo recibir información: <input type="checkbox"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>... el usuario no marca la casilla, la matriz $_REQUEST no contiene ningún
+dato:</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html"><p>Deseo recibir información: <input type="checkbox" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array (
+)</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Y al pretender utilizar el valor, se produce un aviso por utilizar un índice
+no definido:</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Deseo recibir información: <input type="checkbox" readonly="readonly"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;$_REQUEST[acepto]&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><strong>Notice</strong>: Undefined index: acepto
+        in <strong>ejemplo.php</strong> on line <strong>2</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Este problema se resuelve comprobando que el índice está definido antes de
+hacer referencia a él, utilizando la función <a href="http://www.php.net/manual/es/function.isset.php"><span class="php-fun">isset($variable)</span></a>, que admite como argumento una
+variable y devuelve 1 (Verdadero) si existe y 0 (Falso) si no existe.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Deseo recibir información: <input type="checkbox" readonly="readonly"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'acepto'</span>])) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Desea recibir información&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No desea recibir información&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">No desea recibir información</td>
+    </tr>
+    <tr>
+      <td class="resul-html">Deseo recibir información: <input type="checkbox" checked="checked" readonly="readonly"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'acepto'</span>])) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Desea recibir información&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No desea recibir información&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Desea recibir información</td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>En realidad es conveniente efectuar siempre la verificación de existencia,
+para prevenir los casos en que un usuario intente acceder a la página php sin
+pasar por el formulario.</p>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Seguridad">Seguridad en las entradas</h2>
+
+<p>Un usuario puede insertar código html en la entrada de un formulario, lo que
+puede acarrear comportamientos inesperados y riesgos de seguridad. El siguiente
+ejemplo solamente perjudicaría al aspecto de la página:</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" value="&lt;strong&gt;Pepito Conejo&lt;/strong&gt;" readonly="readonly"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array ( 
+    [nombre] =&gt; <strong>Pepito Conejo</strong>
+)</pre>
+
+        <p>Su nombre es <strong>Pepito Conejo</strong> </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El siguiente ejemplo muestra cómo puede utilizarse un formulario para
+inyectar código JavaScript. En este caso el código genera una ventana emergente
+que sólo afecta al propio usuario, pero esta vía podría utilizarse para atacar
+al servidor.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" value="&lt;body onload=&quot;alert(&#39;Hola&#39;)&quot;&gt;" readonly="readonly"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><p><img alt="Recogida de datos. Inyección de JavaScript" src="./Recogida de datos en PHP_files/recogida_datos_1.png" width="250" height="150"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para evitarlo, se puede utilizar la función <a href="http://www.php.net/manual/es/function.strip-tags.php"><span class="php-fun">strip_tags($cadena)</span></a>, que elimina todas las etiquetas
+html, como en el siguiente ejemplo.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="&lt;strong&gt;Pepito Conejo&lt;/strong&gt;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pr; print_r($_REQUEST); print "</span>&lt;/pre&gt;\n<span class="string">";
+print "</span>&lt;p&gt;Su nombre es<span class="string">" . strip_tags($_REQUEST['nombre']) . "</span>&lt;/p&gt;\n<span class="string">";
+?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array ( 
+    [nombre] =&gt; <strong>Pepito Conejo</strong>
+)</pre>
+
+        <p>Su nombre es Pepito Conejo</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El problema es que esta función elimina también cualquier cosa que
+interprete como una etiqueta, es decir, que empiece por "&lt;", como en el
+siguiente ejemplo, así que no debería utilizarse si queremos conservar ese
+carácter.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="&lt;pepe&gt;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es"</span> . strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]) . <span class="string">"&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="codhtml"><pre>&lt;pre&gt;Array
+(
+    [nombre] =&gt; &lt;pepe&gt;
+)
+&lt;/pre&gt;
+&lt;p&gt;Su nombre es&lt;/p&gt;</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>Otra función que conviene aplicar a cualquier entrada de formulario es la
+función <a href="http://www.php.net/manual/es/function.trim.php" title="Ver manual de PHP"><span class="php-fun">trim($cadena)</span></a>, que
+elimina los espacios en blanco iniciales y finales y devuelve la cadena sin
+esos espacios.</p>
+
+<p>Por ejemplo, si en el ejemplo siguiente, el usuario introduce varios
+espacios en blanco en vez de su nombre, la comprobación no serviría para nada
+ya que la cadena con espacios en blanco no es una cadena vacía</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="      "> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">if</span> (<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>] == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $_REQUEST[nombre]&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array (
+    [nombre] =&gt; 
+)</pre>
+
+        <p>Su nombre es</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sin embargo, si se aplica la función trim(), la cadena introducida queda
+reducida a la cadena vacía y la comprobación la detecta:</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="      "> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+<span class="keyword">if</span> (trim(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]) == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es "</span>. trim(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]) . <span class="string">"&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array (
+    [nombre] =&gt; 
+)</pre>
+
+        <p>No ha escrito ningún nombre</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<h3 id="Comillas">Comillas mágicas (magic quotes)</h3>
+
+<p>Aunque actualmente se desaconseja su uso, muchos servidores tienen activada
+la <a href="http://www.mclibre.org/consultar/php/otros/in_php_configuracion.html#magic">extensión
+magic_quotes_gpc</a>. Cuando esta extensión está activada, PHP añade
+automáticamente caracteres de escape (\) delante de las comillas que se
+escriban en un campo de formulario. Para eliminar esos caracteres de escape en
+los programas, es necesario comprobar si están activadas las comillas mágicas y
+eliminar los caracteres de escape añadidos.</p>
+
+<p>El ejemplo siguiente muestra lo que ocurriría si están activadas las
+comillas mágicas (magic_quotes_gpc = On)</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Me llamo &quot;Pepe&quot;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span> (<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>] == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Ha escrito: "</span> . <span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>] . <span class="string">"&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Ha escrito: Me llamo \"Pepe\"</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para eliminar los caracteres de escape, se puede utilizar la función <span class="php-fun"><a href="http://www.php.net/manual/es/function.get-magic-quotes-gpc.php">get_magic_quotes_gpc()</a></span>
+para detectar si la extensión está activada y la función <a href="http://www.php.net/manual/es/function.stripslashes.php" class="php-fun">stripslashes()</a> para eliminarlas.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Me llamo &quot;Pepe&quot;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">if</span> (<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>] == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Ha escrito: "</span>;
+    <span class="keyword">if</span> (get_magic_quotes_gpc()) {
+        <span class="keyword">print</span> stripslashes(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]);
+    } <span class="keyword">else</span> {
+        <span class="keyword">print</span> <span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>];
+    }
+    <span class="keyword">print</span> <span class="string">"&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Ha escrito: Me llamo "Pepe"</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Utilizaci">Utilización de variables</h2>
+
+<p>Si aplicamos las medidas mínimas de seguridad comentadas en el punto
+anterior, cualquier referencia a $_REQUEST[control] debería sustituirse por
+trim(strip_tags($_REQUEST[control])). Si además queremos comprobar si el
+control está definido, el código se complica.</p>
+
+<p>Una solución es guardar los valores de la matriz $_REQUEST en variables y
+realizar todas las comprobaciones al definir esas variables. En el resto del
+código basta con utilizar la variable en vez del elemento de la matriz
+$_REQUEST.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) {
+    <span class="variable">$nombre</span> = trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]));
+} <span class="keyword">else</span> {
+    <span class="variable">$nombre</span> = <span class="string">""</span>;
+}
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array (
+    [nombre] =&gt; 
+)</pre>
+
+        <p>No ha escrito ningún nombre</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="&lt;strong&gt;Pepito Conejo&lt;/strong&gt;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) {
+    <span class="variable">$nombre</span> = trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]));
+} <span class="keyword">else</span> {
+    <span class="variable">$nombre</span> = <span class="string">""</span>;
+}
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array ( 
+    [nombre] =&gt; <strong>Pepito Conejo</strong>
+)</pre>
+
+        <p>Su nombre es Pepito Conejo</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>La asignación de la variable se puede realizar en una sola línea, utilizando
+la notación abreviada: (condición) ? verdadero : falso;:</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="&lt;strong&gt;Pepito Conejo&lt;/strong&gt;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">print</span> <span class="string">"&lt;pre&gt;"</span>; print_r(<span class="variable">$_REQUEST</span>); <span class="keyword">print</span> <span class="string">"&lt;/pre&gt;\n"</span>;
+
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    : <span class="string">""</span>;
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><pre>Array ( 
+    [nombre] =&gt; <strong>Pepito Conejo</strong>
+)</pre>
+
+        <p>Su nombre es Pepito Conejo</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Salida">Salida de datos</h2>
+
+<p>Si los datos recogidos se escriben luego en una página web, hay que tener
+cuidado en algunos casos especiales. Se comentan a continuación dos de ellos y
+después se comenta una solución general para este tipo de caracteres.</p>
+
+<h3 id="cter">El carácter &amp; (ampersand)</h3>
+
+<p>Si el usuario escribe en una entrada el carácter &amp; (ampersand, entidad
+de carácter &amp;amp;), si esa cadena se escribe en una página, la página se
+verá correctamente en el navegador, pero la página no será válida (el xhtml
+será invalido).</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Pepito &amp; Company"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    : <span class="string">""</span>;
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Su nombre es Pepito &amp; Company</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El motivo por el que la página es inválida es que el carácter &amp; indica
+el comienzo de una entidad de carácter. Como en nuestro caso no hay una entidad
+de carácter, la página no es válida.</p>
+
+<p>La solución es sustituir el carácter &amp; por su entidad de carácter
+correspondiente (&amp;amp;). Eso se puede hacer con la función <a href="http://www.php.net/manual/es/function.str-replace.php" class="php-fun">str_replace()</a></p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Pepito &amp; Company"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    : <span class="string">""</span>;
+<span class="variable">$nombre</span> = str_replace(<span class="string">'&amp;'</span>, <span class="string">'&amp;amp;'</span>, <span class="variable">$nombre</span>);
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Su nombre es Pepito &amp; Company</td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<h3 id="cter1">El carácter " (comillas)</h3>
+
+<p>Si el usuario escribe en una entrada el carácter " (comillas, entidad de
+carácter &amp;quot;), si esa cadena se escribe dentro de otras comillas (por
+ejemplo, en el atributo <span class="html-atri">value</span> de una etiqueta
+<span class="html-eti">input</span>), la página no se verá correctamente y
+además no será válida.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Me llamo &quot;Pepe&quot;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    : <span class="string">""</span>;
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Corrija: &lt;input type=\"text\" value=\"$nombre\" /&gt;&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Corrija: <input type="text" name="texto" readonly="readonly" value="Me llamo "></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El problema es que el código fuente contiene comillas dentro de comillas:</p>
+
+<div class="codphp">
+<pre><code class="language-html xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Corrige: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">value</span>=<span class="value">"Me llamo "</span><span class="attribute">Pepe</span><span class="codigo-resaltado">""</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+</div>
+
+<p>Como en el caso anterior, la solución es sustituir el carácter " por su
+entidad de carácter correspondiente (&amp;quot;). Eso se puede hacer con la
+función <a href="http://www.php.net/manual/es/function.str-replace.php" class="php-fun">str_replace()</a></p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Me llamo &quot;Pepe&quot;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>]))
+    : <span class="string">""</span>;
+<span class="variable">$nombre</span> = str_replace(<span class="string">'"'</span>, <span class="string">'&amp;quot;'</span>, <span class="variable">$nombre</span>);
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Corrija: &lt;input type=\"text\" value=\"$nombre\" /&gt;&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Corrija: <input type="text" name="texto" readonly="readonly" value="Me llamo &quot;Pepe&quot;"></td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<h3 id="L1041">Solución general</h3>
+
+<p>Además de los caracteres ampersand (&amp;) y comillas ("), también podrían
+dar problemas los caracteres comillas simples (') o las desigualdades (&lt; y
+&gt;). Se podría sustituir cada uno de ellos como se ha hecho en los ejemplos
+anteriores, pero la función <a href="http://www.php.net/manual/es/function.htmlspecialchars.php"><span class="php-fun">htmlspecialchars()</span></a> realiza todas las sustituciones
+de una sola vez.</p>
+
+<p><strong>Nota</strong>: PHP 5.4.0 modificó el juego de caracteres
+predeterminado de esta función (de ISO-8859-1 a UTF-8). Para que la función
+tenga un resultado similar en versiones anteriores y posteriores, se pueden
+añadir dos argumentos en la llamada a <span class="php-fun">htmlspecialchars()</span>: ENT_QUOTES e "ISO-8859-1" (sin
+comillas y con comillas respectivamente).</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Me llamo &#39;&lt;&quot;Pepe&quot;&gt;&#39;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? htmlspecialchars(trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])), ENT_QUOTES, <span class="string">"ISO-8859-1"</span>) 
+    : <span class="string">""</span>;
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Corrija: &lt;input type=\"text\" value=\"$nombre\" /&gt;&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Corrija: <input type="text" name="texto" readonly="readonly" value="Me llamo &#39;&lt;&quot;Pepe&quot;&gt;&#39;"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El ejemplo anterior tiene el inconveniente de que la funcion <a href="http://www.php.net/manual/es/function.strip-tags.php"><span class="php-fun">strip_tags()</span></a> puede eliminar etiquetas que queríamos
+conservar. Otra solución sería aplicar primero la función <a href="http://www.php.net/manual/es/function.htmlspecialchars.php"><span class="php-fun">htmlspecialchars()</span></a>, como en el ejemplo siguiente.</p>
+
+<table class="ejemplo3">
+  <tbody>
+    <tr>
+      <td class="resul-html">Nombre: <input type="text" name="texto" readonly="readonly" value="Me llamo &#39;&lt;&quot;Pepe&quot;&gt;&#39;"> 
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+      <td class="codphp"><pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$nombre</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>])) 
+    ? strip_tags(trim(htmlspecialchars(<span class="variable">$_REQUEST</span>[<span class="string">'nombre'</span>], ENT_QUOTES, <span class="string">"ISO-8859-1"</span>))) 
+    : <span class="string">""</span>;
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Corrija: &lt;input type=\"text\" value=\"$nombre\" /&gt;&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+      </td>
+      <td class="resul-html">Corrija: <input type="text" name="texto" readonly="readonly" value="Me llamo &#39;&lt;&quot;Pepe&quot;&gt;&#39;"></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>En este caso la función <a href="http://www.php.net/manual/es/function.strip-tags.php"><span class="php-fun">strip_tags()</span></a> probablemente no haga nada en la
+mayoría de los casos.</p>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="Funciones">Funciones de recogida de datos</h2>
+
+<h3 id="Recogida2">Recogida de un dato</h3>
+
+<p>Para tener en cuenta todos los aspectos comentados en los puntos anteriores,
+es conveniente definir funciones para la recogida de datos:</p>
+<ul>
+  <li>La funcion recoge() del ejemplo siguiente tiene como argumento el nombre
+    del control que se quiere recibir y devuelve el valor recibido o una cadena
+    vacía si el control no se ha recibido.</li>
+  <li>La función recoge elimina las etiquetas que pueda contener el texto. Si
+    se desearan recoger etiquetas, la función tendría que ser distinta.</li>
+  <li>Al comienzo del programa el dato recibido se almacena en una
+  variable.</li>
+  <li>En el resto del programa se trabaja con la variable.</li>
+</ul>
+
+<div class="codphp">
+<pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<strong><span class="comment">// FUNCIÓN DE RECOGIDA DE UN DATO</span></strong>
+<span class="function"><span class="keyword">function</span> <span class="title">recoge</span><span class="params">(<span class="variable">$var</span>)</span> 
+{</span>
+    <span class="variable">$tmp</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>]))
+        ? strip_tags(trim(htmlspecialchars(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>], ENT_QUOTES, <span class="string">"ISO-8859-1"</span>))) 
+        : <span class="string">""</span>;
+    <span class="keyword">if</span> (get_magic_quotes_gpc()) {
+        <span class="variable">$tmp</span> = stripslashes(<span class="variable">$tmp</span>);
+    }
+    <span class="keyword">return</span> <span class="variable">$tmp</span>;
+}
+
+<strong><span class="comment">// EJEMPLO DE USO DE LA FUNCIÓN ANTERIOR</span></strong>
+<span class="variable">$nombre</span> = recoge(<span class="string">"nombre"</span>);
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+</div>
+<hr class="corta">
+
+<h3 id="Recogida3">Recogida de un dato con valor predeterminado</h3>
+
+<p>La función recoge() del apartado anterior se puede modificar para definir un
+valor predeterminado (es decir, que si el dato no existe, la función devuelve
+el valor enviado como segundo argumento y si no se envía el valor
+predeterminado la función devolvería la cadena vacía).</p>
+
+<p>En el ejemplo siguiente, si no se recibe el nombre, se le asigna el nombre
+"pobrecito hablador".</p>
+
+<div class="codphp">
+<pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<strong><span class="comment">// FUNCIÓN DE RECOGIDA DE UN DATO CON VALOR PREDETERMINADO</span></strong>
+<span class="function"><span class="keyword">function</span> <span class="title">recoge</span><span class="params">(<span class="variable">$var</span>, <span class="variable">$var2</span>=<span class="string">""</span>)</span> 
+{</span>
+    <span class="variable">$tmp</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>]) &amp;&amp; trim(strip_tags(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>])) != <span class="string">""</span>)
+        ? strip_tags(trim(htmlspecialchars(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>], ENT_QUOTES, <span class="string">"ISO-8859-1"</span>)))
+        : strip_tags(trim(htmlspecialchars(<span class="variable">$var2</span>, ENT_QUOTES, <span class="string">"ISO-8859-1"</span>)));
+    <span class="keyword">if</span> (get_magic_quotes_gpc()) {
+        <span class="variable">$tmp</span> = stripslashes(<span class="variable">$tmp</span>);
+    }
+    <span class="keyword">return</span> <span class="variable">$tmp</span>;
+}
+
+<strong><span class="comment">// EJEMPLO DE USO DE LA FUNCIÓN ANTERIOR</span></strong>
+<span class="variable">$nombre</span> = recoge(<span class="string">"nombre"</span>, <span class="string">"pobrecito hablador"</span>);
+<span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+</div>
+<hr class="corta">
+
+<h3 id="Recogida21">Recogida de una matriz de una dimensión</h3>
+
+<p>Si un formulario envía los datos en forma de matriz, como en el ejemplo
+siguiente, la función recoge() del punto anterior no serviría.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td class="codhtml"><pre><code class="language-html xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"ejemplo.php"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Nombre: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"nombre[1]"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span>Apellido: <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"nombre[2]"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"Enviar"</span> /&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+      </td>
+      <td class="resul-html"><p>Nombre: <input type="text" name="texto" value="Pepito" readonly="readonly"></p>
+
+        <p>Apellido: <input type="text" name="texto" value="Conejo" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Hay que hacer otra función que recoja y trate los datos en forma de
+matriz.</p>
+<ul>
+  <li>La funcion recogeMatriz() del ejemplo siguiente tiene como argumento el
+    nombre del control que se quiere recibir (que debe ser una matriz de una
+    dimensión, no sirve para matrices de dos o más dimensiones) y devuelve una
+    matriz con los valores recibidos o una matriz vacía si el control no se ha
+    recibido.</li>
+  <li>Al comienzo del programa los datos recibidos se almacenan en una
+  matriz.</li>
+  <li>En el resto del programa se trabaja con la matriz.</li>
+</ul>
+
+<div class="codphp">
+<pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<strong><span class="comment">// FUNCIÓN DE RECOGIDA DE UNA MATRIZ DE UNA DIMENSIÓN</span></strong>
+<span class="function"><span class="keyword">function</span> <span class="title">recogeMatriz</span><span class="params">(<span class="variable">$var</span>)</span> 
+{</span>
+    <span class="variable">$tmpMatriz</span> = <span class="keyword">array</span>();
+    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>]) &amp;&amp; is_array(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>])) {
+        <span class="keyword">foreach</span> (<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>] <span class="keyword">as</span> <span class="variable">$indice</span> =&gt; <span class="variable">$valor</span>) {
+            <span class="variable">$tmp</span> = strip_tags(trim(htmlspecialchars(<span class="variable">$indice</span>, ENT_QUOTES, <span class="string">"ISO-8859-1"</span>)));
+            <span class="keyword">if</span> (get_magic_quotes_gpc()) {
+                <span class="variable">$tmp</span> = stripslashes(<span class="variable">$tmp</span>);
+            }
+            <span class="variable">$indiceLimpio</span> = <span class="variable">$tmp</span>;
+
+            <span class="variable">$tmp</span> = strip_tags(trim(htmlspecialchars(<span class="variable">$valor</span>, ENT_QUOTES, <span class="string">"ISO-8859-1"</span>)));
+            <span class="keyword">if</span> (get_magic_quotes_gpc()) {
+                <span class="variable">$tmp</span> = stripslashes(<span class="variable">$tmp</span>);
+            }
+            <span class="variable">$valorLimpio</span> = <span class="variable">$tmp</span>;
+
+            <span class="variable">$tmpMatriz</span>[<span class="variable">$indiceLimpio</span>] = <span class="variable">$valorLimpio</span>;
+        }
+    }
+    <span class="keyword">return</span> <span class="variable">$tmpMatriz</span>;
+}
+
+<strong><span class="comment">// EJEMPLO DE USO DE LA FUNCIÓN ANTERIOR</span></strong>
+<span class="variable">$nombre</span> = recogeMatriz(<span class="string">"nombre"</span>);
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span>[<span class="number">1</span>] == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p style=\"color: red\"&gt;No ha escrito su nombre.&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es &lt;strong&gt;$nombre[1]&lt;/strong&gt;.&lt;/p&gt;\n"</span>;
+}
+
+<span class="keyword">if</span> (<span class="variable">$nombre</span>[<span class="number">2</span>] == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p style=\"color: red\"&gt;No ha escrito su apellido.&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su apellido es &lt;strong&gt;$nombre[2]&lt;/strong&gt;.&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+</div>
+<hr class="corta">
+
+<h3 id="L1250">Recoger y recortar los datos</h3>
+
+<p>En caso de que por algún motivo se quiera recortar el tamaño de los datos
+recibidos a un tamaño determinado se puede crear una función recorta() que
+recorte la longitud de los campos y llamarla desde la función recoge():</p>
+
+<div class="codphp">
+<pre><code class="language-php"><span class="preprocessor">&lt;?php</span>
+<strong><span class="comment">// FUNCIONES DE RECOGIDA Y RECORTE DE UN DATO</span></strong>
+<span class="variable">$tamNombre</span> = <span class="number">30</span>;
+
+<span class="variable">$recorta</span> = <span class="keyword">array</span>(
+    <span class="string">"nombre"</span> =&gt; <span class="variable">$tamNombre</span>);
+
+<span class="function"><span class="keyword">function</span> <span class="title">recorta</span><span class="params">(<span class="variable">$campo</span>, <span class="variable">$cadena</span>)</span>
+{</span>
+    <span class="keyword">global</span> <span class="variable">$recorta</span>;
+
+    <span class="variable">$tmp</span> = <span class="keyword">isset</span>(<span class="variable">$recorta</span>[<span class="variable">$campo</span>]) 
+        ? substr(<span class="variable">$cadena</span>, <span class="number">0</span>, <span class="variable">$recorta</span>[<span class="variable">$campo</span>]) 
+        : <span class="variable">$cadena</span>; 
+    <span class="keyword">return</span> <span class="variable">$tmp</span>;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">recoge</span><span class="params">(<span class="variable">$var</span>)</span> 
+{</span>
+    <span class="variable">$tmp</span> = (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>])) 
+        ? strip_tags(trim(htmlspecialchars(<span class="variable">$_REQUEST</span>[<span class="variable">$var</span>], ENT_QUOTES, <span class="string">"ISO-8859-1"</span>))) 
+        : <span class="string">""</span>;
+    <span class="keyword">if</span> (get_magic_quotes_gpc()) {
+        <span class="variable">$tmp</span> = stripslashes(<span class="variable">$tmp</span>);
+    }
+    <span class="variable">$tmp</span> = recorta(<span class="variable">$var</span>, <span class="variable">$tmp</span>);
+    <span class="keyword">return</span> <span class="variable">$tmp</span>;
+}
+
+<strong><span class="comment">// EJEMPLO DE USO DE LAS FUNCIONES ANTERIORES</span></strong>
+<span class="variable">$nombre</span> = recoge(<span class="string">"nombre"</span>);
+<span class="keyword">if</span> (<span class="variable">$nombre</span> == <span class="string">""</span>) {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;No ha escrito ningún nombre&lt;/p&gt;\n"</span>;
+} <span class="keyword">else</span> {
+    <span class="keyword">print</span> <span class="string">"&lt;p&gt;Su nombre es $nombre&lt;/p&gt;\n"</span>;
+}
+<span class="preprocessor">?&gt;</span></code></pre>
+</div>
+
+<p><a href="http://www.mclibre.org/consultar/php/lecciones/php_recogida_datos.html#">Volver al principio de la página</a></p>
+<address>
+  Esta página forma parte del curso "Páginas web con PHP" disponible en <a href="http://www.mclibre.org/">http://www.mclibre.org</a><br>
+  Autor: Bartolomé Sintes Marco<br>
+  Última modificación: 24 de octubre de 2013
+</address>
+
+<p class="licencia"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/"><img alt="Creative Commons License" style="border-width:0" src="./Recogida de datos en PHP_files/88x31.png"></a> <br>
+Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/">licencia de Creative
+Commons Reconocimiento-CompartirIgual 3.0 España</a>.</p>
+
+
+</body></html>

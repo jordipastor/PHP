@@ -1,0 +1,35 @@
+Apuentes de http://www.codecademy.com/es sobre PHP
+__________________________________________________
+
+PHP es un lenguaje de programación que puede hacer todo tipo de cosas:
+evaluar datos de formularios enviados desde un navegador,
+construir contenido web a medida para el navegador, consultar una base de datos,
+e incluso enviar y recibir cookies (pequeños paquetes de datos que tu navegador
+usa para recordar cosas).
+
+Es un lenguaje en la parte del servidor que permanece invisible al cliente.
+
+Primer ejemplo que incluye la página____________________________________________
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="author" content="http://www.codecademy.com/es/courses" />
+	<!-- agredicido por sus lecciones, que tanto me han enseñado -->
+	<meta charset="utf-8">
+	<meta type="text/css" href="./style.css">
+	<title>PHP! sos un boludo...</title>
+</head>
+
+<body>
+	<div class="header">
+	<h2>
+		<?php
+			$bienvenido = "Empecemos con PHP";
+			print $bienvenido;
+		?>
+	</h2>
+	</div>
+	<p><strong>Genera una lista (y no una tonta)
+</body>
+</html>
+</DOCTYPE>

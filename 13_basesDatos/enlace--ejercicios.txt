@@ -1,0 +1,3 @@
+http://www.mclibre.org/consultar/php/lecciones/php_estructuras_control_bucle_foreach.html
+
+http://www.mclibre.org/consultar/php/lecciones/php_matrices.html

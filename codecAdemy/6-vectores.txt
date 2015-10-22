@@ -1,0 +1,8 @@
+Siguiendo el curso de www.codecademy.com
+________________________________________
+
+Array's
+
+    <?php
+	$comprar = array("Huevo", "Tomate", "ajos", "judías");
+    ?>

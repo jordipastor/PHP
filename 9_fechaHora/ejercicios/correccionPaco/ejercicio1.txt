@@ -1,0 +1,9 @@
+<?php
+function anyosVida($dia, $mes, $anyo){
+	$hoy = date("m/d/Y");
+	$seg = time()-mktime(0,0,0, $mes, $dia, $anyo);
+	//dif_anyos = ($seg /60/60/24/360);
+	$dif_anyos = intval($seg /60/60/24/365); //Para redondear /minutos/horas/dias/anyos 
+}
+echo 'La cantidad de años entre el $dia /$mes/ $anyo y $hoy son <b> $dif_anyos </p'>; echo"<br />"
+?>

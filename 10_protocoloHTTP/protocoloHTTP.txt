@@ -1,0 +1,55 @@
+El protocolo HTTP Hypertext Transfer Protocol
+_____________________________________________________________________________
+
+Aspectos importantes para el manejo de cookies.
+Las cookies son un mapeado de enlaces.
+
+ * Comunicación entre el navegador y el servidor.
+ * Solicitudes HTTP desde el navegador.
+ * Respuestas HTTP desde el servidor.
+
+Comunicación entre el cliente y el servidor.
+
+1º El usuario solicita al servidor un documento mediante una solicitud HTTP.
+	NAVEGADOR CLIENTE --> Solicitud + cabecera + cuerpo --> SERVIDOR
+
+	1.1 La línea de solicitud esta formadoa por varias líneas de texto:
+		1.1.1 Método que se va ha utilizar (GET, POST, TRACE, etc...).
+		1.1.2 La ubicación del documento solicitado (URL).
+		1.1.3 La versión del protocolo HTTP.
+
+	1.2 Los campos de cabecera, que pueden incluir entre ellos  (sistema operativo, navegador, IP...):
+		1.2.1 Referer --> dirección (Xpath); dierección /datos del cliente.
+		Que enlaces contiene la página solicitada; referencias.
+		1.2.2 User-agent --> información sobre el navegador (nombre, versión,).
+		1.2.3 Accept --> tipos MIME; juego de caracteres, codificaciones de idiomas (UTF-8),
+		admitidos por el navegador.
+
+* http://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions
+Tipos MIME (Multiporpose Internet Mail Extensions) en la cabecera de una petición HTTP:
+Son una serie de especificaciones para el intercambio a través de Internet de cualquier tipo de dato (texto, audio...).
+Una parte importante esta dirigida a la transferencia de texto en distintos idiomas y alfabetos.
+En general soportan:
+	* Texto en conjuntos caracteres distintos a ASCII.
+	* Adjuntos que no son de tipo texto.
+	* Cuerpos de mensajes multi-part.
+	* Información del contenido de los encabezados.
+El protocolo SMTP (Simple Mail Transfer Protocol) transforma la información (correo electrónico) que le llega por los MIME.
+Tienen gran influencia en protocolos de comunicación como el HTTP (Hypertext Transfer Protocol), fuera de los mensajes
+electrónicos.
+
+		1.2.3 Cookies --> si el navegador del cliente ha almacenado, previamente, cookies; estas se incluyen
+		en las peticiones.
+
+	1.3 Los campos de la cabecera, que pueden incluir entre otros:
+		1.3.1 Location --> permite decirle al cliente que solicite otro documento
+		en lugar del documeto solicitado inicialmente.
+		1.3.2 Content --> tipo MIME, juego de caracter, codificación, idioma, etc...
+		1.3.3 Set-cookie --> permite decirle al cliente que cree una cookie.
+
+	1.4 Una línea en blanco.
+	1.5 El cuerpo del mensaje, que incluye el documento solicitado por el cliente.
+	
+2º El servidor prepara el documento.
+3º El servidor envía el documento al navegador mediante una respuesta HTTP.
+4º El navegador muestra el documento al usuario.

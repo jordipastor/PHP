@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0165)file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- Mirrored from www.mclibre.org/consultar/php/lecciones/php_controles.html by HTTrack Website Copier/3.x [XR&CO'2013], Tue, 22 Oct 2013 22:21:58 GMT --><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  
+  <title>Controles en formularios. PHP. Bartolomé Sintes Marco</title>
+  <meta name="generator" content="amaya 9.3, see http://www.w3.org/Amaya/">
+  <link href="./Controles en formularios_files/mclibre_php.css" rel="stylesheet" type="text/css" title="Color">
+  <link href="./Controles en formularios_files/mclibre_php_bn.css" rel="alternate stylesheet" type="text/css" title="Blanco y negro">
+  <link rel="shortcut icon" href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/varios/mclibre.ico">
+</head>
+
+<body>
+<h1><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/index-2.html"><img alt="Volver al índice" src="./Controles en formularios_files/indice.png" width="61" height="50" id="vpp" title="Volver al índice"></a> Controles en formularios</h1>
+
+<p>Estos son los diferentes tipo de controles que pueden incluirse en un
+formulario:</p>
+
+<div class="toc">
+<ul>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Explicaci">Explicación previa</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#submit">Botón Enviar (submit o button)</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Cajas">Caja de texo, caja de contraseña y área de texto</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Casillas">Casilla de verificación</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Botones">Botón radio</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#s">Menú</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Control">Control oculto</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Archivos">Archivo</a></li>
+  <li><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#Imagen">Imagen</a></li>
+</ul>
+</div>
+
+<p>Esta lección comenta los aspectos de los formularios con respecto al
+procesamiento de los datos. Para conocer los aspectos de los formularios con
+respecto a su apariencia y navegación, se puede consultar la <a href="http://www.mclibre.org/consultar/amaya/xhtml/xhtml_formularios.html">lección
+sobre formularios en los apuntes de XHTML y CSS</a>.</p>
+<hr>
+
+<h2 id="Explicaci">Explicación previa</h2>
+
+<p>Para que un control envíe información es necesario:</p>
+<ul>
+  <li>que el control esté incluido en un formulario (<span class="html-eti">&lt;form&gt;</span>).</li>
+  <li>que el formulario tenga establecido el atributo <span class="html-atri">action</span>, con la dirección absoluta o relativa del
+    fichero php que procesará la información</li>
+  <li>que el control tenga establecido el atributo <span class="html-atri">name</span><br>
+    Nota: el atributo <span class="html-atri">name</span> puede contener
+    cualquier carácter (números, acentos, guiones, etc), pero si contiene
+    espacios, PHP sustituye los espacios por guiones bajos (_) al procesar los
+    datos enviados.</li>
+  <li>que el formulario contenga un botón de tipo submit </li>
+</ul>
+
+<p>El siguiente ejemplo muestra un formulario válido (ejemplo.html):</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td class="codhtml"><pre>&lt;form action="ejemplo.php"&gt;
+  &lt;p&gt;Nombre: &lt;input type="text" name="nombre" /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type="submit" value="Enviar" /&gt;&lt;/p&gt;
+&lt;/form&gt;</pre>
+      </td>
+      <td class="resul-html"><p>Nombre: <input type="text" name="texto" value="Pepito Conejo" readonly="readonly"></p>
+
+        <p>
+        <input type="submit" value="Enviar"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>El programa que recibe los datos los guarda automáticamente en la matriz
+$_REQUEST. Mediante la orden <span class="php-fun">print_r($_REQUEST)</span> se
+puede mostrar el contenido de la matriz $_REQUEST.</p>
+
+<p>El siguiente ejemplo muestra lo que escribiría el programa PHP (ejemplo.php)
+si recibiera la información del formulario anterior (ejemplo.html).</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <td class="codphp"><pre>&lt;?php
+print "&lt;pre&gt;"; 
+print_r($_REQUEST); 
+print "&lt;/pre&gt;";
+?&gt;</pre>
+      </td>
+      <td class="resul-html"><pre>Array
+(
+    [nombre] =&gt; Pepito Conejo
+)<br></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>En los ejemplos que se encuentran en esta página, cada ejemplo muestra el
+código fuente de la página html, el aspecto que tiene el control y el contenido
+de la matriz $_REQUEST cuando se recibe la información.</p>
+<hr class="corta">
+
+<h3>Atributo <span class="html-atri">method</span></h3>
+
+<p>El atributo <span class="html-atri">method</span> de la etiqueta <span class="html-eti">&lt;form&gt;</span> permite elegir si la información de los
+controles se incluye en la llamada a la página (<span class="html-atri">method</span>=<span class="html-atri-valor">get</span>) o se
+proporciona posteriormente (<span class="html-atri">method</span>=<span class="html-atri-valor">post</span>). Si el atributo no está definido, la
+información se incluye. Desde el punto de vista de la seguridad ambos métodos
+son equivalentes.</p>
+
+<p>La diferencia es que con el valor <span class="html-atri-valor">get</span>
+se pueden ver en la barra de dirección los nombres de los controles y los
+valores introducidos por el usuario, mientras que con el valor <span class="html-atri-valor">post</span> no.</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <th>ejemplo.html</th>
+      <th>ejemplo.php</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;form action="ejemplo.php" <strong>action="get"</strong>&gt;
+  &lt;p&gt;Nombre: &lt;input type="text" name="nombre" /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type="submit" value="Enviar" /&gt;&lt;/p&gt;
+&lt;/form&gt;</pre>
+      </td>
+      <td class="codhtml"><pre>print "&lt;pre&gt;"; 
+print_r($_REQUEST); 
+print "&lt;/pre&gt;";</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><p><img alt="Ejemplo de formulario" src="./Controles en formularios_files/method_1.png" width="500" height="200" title="Ejemplo de formulario"></p>
+      </td>
+      <td><p><img alt="Resultado de formulario con method get" src="./Controles en formularios_files/method_get_2.png" width="500" height="200" title="Resultado de formulario con method get"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <th>ejemplo.html</th>
+      <th>ejemplo.php</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;form action="ejemplo.php" <strong>action="post"</strong>&gt;
+  &lt;p&gt;Nombre: &lt;input type="text" name="nombre" /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type="submit" value="Enviar" /&gt;&lt;/p&gt;
+&lt;/form&gt;</pre>
+      </td>
+      <td class="codhtml"><pre>print "&lt;pre&gt;"; 
+print_r($_REQUEST); 
+print "&lt;/pre&gt;";</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><p><img alt="Ejemplo de formulario" src="./Controles en formularios_files/method_1.png" width="500" height="200" title="Ejemplo de formulario"></p>
+      </td>
+      <td><p><img alt="Resultado de formulario con method get" src="./Controles en formularios_files/method_post_2.png" width="500" height="200" title="Resultado de formulario con method get"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr class="corta">
+
+<p>En caso de que haya varios controles que envíen información, los nombres y
+valores aparecen como nombre1=valor1&amp;nombre2=valor2&amp;...</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <th>ejemplo.html</th>
+      <th>ejemplo.php</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;form action="ejemplo.php" <strong>action="get"</strong>&gt;
+  &lt;p&gt;Nombre: &lt;input type="text" name="nombre" /&gt;&lt;/p&gt;
+  &lt;p&gt;Apellidos: &lt;input type="text" name="apellidos" /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type="submit" value="Enviar" /&gt;&lt;/p&gt;
+&lt;/form&gt;</pre>
+      </td>
+      <td class="codhtml"><pre>print "&lt;pre&gt;"; 
+print_r($_REQUEST); 
+print "&lt;/pre&gt;";</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><p><img alt="Ejemplo de formulario" src="./Controles en formularios_files/method_1b.png" width="500" height="220" title="Ejemplo de formulario"></p>
+      </td>
+      <td><p><img alt="Resultado de formulario con method get" src="./Controles en formularios_files/method_get_2b.png" width="600" height="200" title="Resultado de formulario con method get"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr>
+
+<h2 id="submit">Botón Enviar (submit o button)</h2>
+
+<p>Este control se puede crear con la etiqueta <span class="html-eti">&lt;input&gt;</span> o con la etiqueta <span class="html-eti">&lt;button&gt;</span>. En ambos casos, este control se envía
+siempre que esté definido el atributo <span class="html-atri">name</span> y el
+valor enviado es el valor del atributo <span class="html-atri">value</span> o
+el contenido de la etiqueta.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="submit" value="Submit" /&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <input type="submit" value="Submit"></td>
+      <td class="resul-html">Array ( )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="submit" value="Enviar" name="boton2" /&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <input type="submit" value="Enviar" name="boton2"></td>
+      <td class="resul-html">Array ( [boton2] =&gt; Enviar )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p></p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;button type="submit"&gt;Submit&lt;/button&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <input type="submit" value="Submit"></td>
+      <td class="resul-html">Array ( )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;button type="submit" name="boton3"&gt;Enviar&lt;/button&gt;</pre>
+      </td>
+      <td class="resul-html"><button type="submit" name="boton3" value="enviado">Enviar</button></td>
+      <td class="resul-html">Array ( [boton3] =&gt; Enviar </td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;button type="submit" name="boton4" value="enviado"&gt;Enviar&lt;/button&gt;</pre>
+      </td>
+      <td class="resul-html"><button type="submit" name="boton3">Enviar</button></td>
+      <td class="resul-html">Array ( [boton4] =&gt; enviado )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Normalmente no se suele dar el atributo <span class="html-atri">name</span>
+al botón enviar ya que la información se envía cuando se hace clic en el botón.
+pero en algunos casos si que puede ser conveniente. Por ejemplo cuando el
+formulario contiene varios botones y queremos saber cuál se ha pulsado, como en
+el ejemplo siguiente, en el que los atributos <span class="html-atri">name</span> son iguales, pero los atributos <span class="html-atri">value</span> son distintos:</p>
+
+<table class="ejemplo">
+  <tbody>
+    <tr>
+      <th>ejemplo.html</th>
+      <th>ejemplo.php</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;form action="ejemplo.php" <strong>action="get"</strong>&gt;
+  &lt;p&gt;¿Sí o no?&lt;/p&gt;
+  &lt;p&gt;&lt;input type="submit" name="respuesta" value="Sí" /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;input type="submit" name="respuesta" value="No" /&gt;&lt;/p&gt;
+&lt;/form&gt;</pre>
+      </td>
+      <td class="codhtml"><pre>print "&lt;pre&gt;"; 
+print_r($_REQUEST); 
+print "&lt;/pre&gt;";</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><p><img alt="Ejemplo de formulario" src="./Controles en formularios_files/form_submit_1.png" width="500" height="200" title="Ejemplo de formulario"></p>
+      </td>
+      <td><p><img alt="Resultado de formulario con method get" src="./Controles en formularios_files/form_submit_2.png" width="500" height="200" title="Resultado de formulario con method get"></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="Cajas">Caja de texo, caja de contraseña y área de texto</h2>
+
+<p>Este control se envía siempre. El valor enviado es el contenido de la caja o
+área.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="text" name="cajatexto1" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="text" name="cajatexto" readonly="readonly"></td>
+      <td class="resul-html">Array ( [cajatexto1] =&gt; )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="text" name="cajatexto2" value="Cualquier cosa" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="text" name="cajatexto" value="Cualquier cosa" readonly="readonly"></td>
+      <td class="resul-html">Array ( [cajatexto2] =&gt; Cualquier cosa )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="password" name="cajapassword1" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="password"></td>
+      <td class="resul-html">Array ( [cajapassword1] =&gt; )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="password" name="cajapassword2" value="pezespada" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="password" value="pezespada" readonly="readonly"></td>
+      <td class="resul-html">Array ( [cajapassword2] =&gt; pezespada )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;textarea rows="4" cols="20" name="areadetexto1"&gt;&lt;/textarea&gt;</pre>
+      </td>
+      <td class="resul-html"><textarea rows="4" cols="20" readonly="readonly"></textarea></td>
+      <td class="resul-html">Array ( [areadetexto1] =&gt; )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;textarea rows="4" cols="20" name="areadetexto2"&gt;Cualquier cosa&lt;/textarea&gt;</pre>
+      </td>
+      <td class="resul-html"><textarea rows="4" cols="20" readonly="readonly">Cualquier cosa</textarea></td>
+      <td class="resul-html">Array ( [areadetexto2] =&gt; Cualquier cosa )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>En XHTML no se puede limitar el tamaño del contenido de un área de texto,
+aunque sí que se puede hacer con JavaScript.</p>
+
+<p class="incompleto">Hay un ejemplo en este foro: <a href="http://www.fwzone.net/forum/topic.asp?topic_id=25388">limitar contenido
+área de texto</a>.</p>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="Casillas">Casilla de verificación</h2>
+
+<p>Este control se envía solamente si se marca la casilla. El valor enviado es
+"on" si la casilla no tiene definido el atributo <span class="html-atri">value</span> o el valor del aributo <span class="html-atri">value</span> si éste está definido.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="checkbox" name="casilla1" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="checkbox" name="casilla1"> (sin
+        marcar)</td>
+      <td class="resul-html">Array ( )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="checkbox" name="casilla2" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="checkbox" checked="checked" name="casilla2"> (marcada)</td>
+      <td class="resul-html">Array ( [casilla2] =&gt; on )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="checkbox" name="casilla3" value="Tres" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="checkbox" checked="checked" name="casilla1" value="Tres"> (marcada)</td>
+      <td class="resul-html">Array ( [casilla3] =&gt; Tres )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="Botones">Botón radio</h2>
+
+<p>Este control se envía solamente si se marca alguno de los botones radio que
+forman el control. El valor enviado es "on" si el botón marcado no tiene
+definido el atributo <span class="html-atri">value</span> o el valor del
+atributo <span class="html-atri">value</span> si éste está definido.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="radio" name="radio1" /&gt;<br>&lt;input type="radio" name="radio1" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="radio" name="radio1"> <input type="radio" name="radio1"> (sin marcar)</td>
+      <td class="resul-html">Array ( )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="radio" name="radio2" /&gt;<br>&lt;input type="radio" name="radio2" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="radio" name="radio2" checked="checked"> <input type="radio" name="radio2"> (marcado
+      uno)</td>
+      <td class="resul-html">Array ( [radio2] =&gt; on )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="radio" name="radio3" /&gt;<br>&lt;input type="radio" name="radio3" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="radio" name="radio3"> <input type="radio" name="radio3" checked="checked"> (marcado otro)</td>
+      <td class="resul-html">Array ( [radio3] =&gt; on )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="radio" name="radio4" value="Uno" /&gt;
+&lt;input type="radio" name="radio4" value="Dos" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="radio" name="radio4" checked="checked" value="Uno"> <input type="radio" name="radio4" value="Dos"> (marcado uno)</td>
+      <td class="resul-html">Array ( [radio4] =&gt; Uno )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="radio" name="radio5" value="Uno" /&gt;
+&lt;input type="radio" name="radio5" value="Dos" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="radio" name="radio5" value="Uno">
+        <input type="radio" name="radio5" checked="checked" value="Dos">
+        (marcado otro)</td>
+      <td class="resul-html">Array ( [radio5] =&gt; Dos )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="s">Menú</h2>
+
+<p>Este control envía siempre la opción elegida. El valor enviado es el
+contenido de la etiqueta <span class="html-eti">option</span> elegida si la
+opción elegida no tiene definido el atributo <span class="html-atri">value</span> o el valor del aributo <span class="html-atri">value</span> si éste está definido.</p>
+
+<p>Si el menú admite selección múltiple, entonces el nombre del menú debe
+acabar con corchetes ([]) y se envía como una matriz, de tantos elementos como
+opciones se hayan elegido.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;select name="menu1"&gt;
+  &lt;option selected="selected"&gt;&lt;/option&gt;
+  &lt;option&gt;&lt;/option&gt;
+&lt;/select&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <select name="menu1">
+          <option selected="selected"></option>
+          <option></option>
+        </select>
+         </td>
+      <td class="resul-html">Array ( [menu1] =&gt; )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;select name="menu2"&gt;
+  &lt;option selected="selected"&gt;Opción 1&lt;/option&gt;
+  &lt;option&gt;Opción 2&lt;/option&gt;
+&lt;/select&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <select name="menu3">
+          <option selected="selected">Opción 1</option>
+          <option>Opción 2</option>
+        </select>
+         </td>
+      <td class="resul-html">Array ( [menu2] =&gt; Opción 1 )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;select name="menu3"&gt;
+  &lt;option selected="selected" value="Uno"&gt;Opción 1&lt;/option&gt;
+  &lt;option value="Dos"&gt;Opción 2&lt;/option&gt;
+&lt;/select&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <select name="menu3">
+          <option selected="selected">Opción 1</option>
+          <option>Opción 2</option>
+        </select>
+         </td>
+      <td class="resul-html">Array ( [menu3] =&gt; Uno )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;select name="menu4[]" size="3" multiple="multiple"&gt;
+  &lt;option selected="selected"&gt;Opción 1&lt;/option&gt;
+  &lt;option&gt;Opción 2&lt;/option&gt;
+  &lt;option&gt;Opción 3&lt;/option&gt;
+&lt;/select&gt;</pre>
+      </td>
+      <td class="resul-html">
+        <select name="menu4[]" size="3" multiple="multiple">
+          <option value="Opción 1" selected="selected">Opción 1</option>
+          <option value="Opción 2">Opción 2</option>
+          <option value="Opción 3" selected="selected">Opción 3</option>
+        </select>
+         <br>
+        (Marcados 1 y 3)</td>
+      <td class="resul-html">Array ( [menu4] =&gt; Array ( [0] =&gt; Opción 1
+        [1] =&gt; Opción 3 ) )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="Control">Control oculto</h2>
+
+<p>Este control se envía siempre y el valor enviado es el valor del atributo
+<span class="html-atri">value</span>.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="hidden" name="oculto1" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="hidden" name="oculto2" value="Cualquier cosa"></td>
+      <td class="resul-html">Array ( [oculto1] =&gt; )</td>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="hidden" name="oculto2" value="Cualquier cosa" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="hidden" name="oculto"></td>
+      <td class="resul-html">Array ( [oculto2] =&gt; Cualquier cosa )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="Archivos">Archivo</h2>
+
+<p>El selector de archivo permite enviar un archivo desde el ordenador del
+cliente al servidor.</p>
+
+<p>En un formulario "normal", este control se envía siempre y el valor enviado
+es el nombre del archivo elegido.</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="file" name="archivo1" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="file"></td>
+      <td class="resul-html">Array ( [archivo1] =&gt; loquesea.txt )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para que este control envíe toda la información, el formulario debe tener el
+atributo <span class="html-atri">enctype</span> con el valor <span class="html-atri-valor">multipart/form-data</span> y ser enviado con el método
+<span class="html-atri-valor">POST</span>. La información se almacena entonces
+en la matriz $_FILES (pero no en la variable $_REQUEST).</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_FILES</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;form enctype="multipart/form-data"
+  action="ejemplo.php" method="POST" &gt;
+&lt;input type="file" name="archivo2" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="file"></td>
+      <td class="resul-html">Array ( [archivo2] =&gt; Array ( <br>
+        [name] =&gt; loquesea.txt<br>
+        [type] =&gt; text/plain<br>
+        [tmp_name] =&gt; C:\ejemplos\loquesea.txt<br>
+        [error] =&gt; 0 <br>
+        [size] =&gt; 27890 ) )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Antes de utilizar este control, hay que configurar en el archivo php.ini el
+tamaño máximo de los archivos que se pueden enviar (mediante la directiva
+post_max_size) y es conveniente leer el capítulo correspondiente a la <a href="http://www.php.net/manual/es/features.file-upload.php">subida de
+archivos</a> del manual de PHP para conocer la manera de evitar los posibles
+riesgos de seguridad.</p>
+
+<p>En la lección <a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_cargar_archivos.html">Cargar archivos</a> se
+comenta un poco más el uso de este control.</p>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<hr class="corta">
+
+<h2 id="Imagen">Imagen</h2>
+
+<p>El control de tipo imagen inserta una imagen que funciona como un botón
+(aunque ni Firefox ni Internet Explorer le da relieve como a los botones). Al
+hacer clic en un punto de la imagen es como si se hubiera pulsado a un botón
+submit y se envían las coordenadas del punto en el que se ha hecho clic (junto
+con los valores de los otros controles del formulario).</p>
+
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Código fuente</th>
+      <th>Control</th>
+      <th>$_REQUEST</th>
+    </tr>
+    <tr>
+      <td class="codhtml"><pre>&lt;input type="image" name="GNU" alt="GNU" src="gnu.jpg" /&gt;</pre>
+      </td>
+      <td class="resul-html"><input type="image" name="GNU" alt="GNU" src="./Controles en formularios_files/gnu-head-sm.jpg"></td>
+      <td class="resul-html">Array ( [GNU_x] =&gt; 89 [GNU_y] =&gt; 111 )</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Si se define el atributo <span class="html-atri">value</span>, el formulario
+envía también el nombre del control con el valor del atributo.</p>
+
+<p><a href="file:///E:/CURSO%202013-2014%20AUSIAS/M%C3%93DULO%20DESPLIEGUE%20DE%20APLICACIONES%20WEB/PHP%20CDLIBRE/PHP/www.mclibre.org/consultar/php/lecciones/php_controles.html#">Volver al principio de la página</a></p>
+<address>
+  Esta página forma parte del curso "Páginas web con PHP" disponible en <a href="http://www.mclibre.org/">http://www.mclibre.org</a><br>
+  Autor: Bartolomé Sintes Marco<br>
+  Última modificación: 8 de octubre de 2013 
+</address>
+
+<p class="licencia"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/"><img alt="Creative Commons License" style="border-width:0" src="./Controles en formularios_files/88x31.png"></a> <br>
+Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/es/">licencia de Creative
+Commons Reconocimiento-CompartirIgual 3.0 España</a>.</p>
+
+
+<!-- Mirrored from www.mclibre.org/consultar/php/lecciones/php_controles.html by HTTrack Website Copier/3.x [XR&CO'2013], Tue, 22 Oct 2013 22:22:05 GMT -->
+
+</body></html>

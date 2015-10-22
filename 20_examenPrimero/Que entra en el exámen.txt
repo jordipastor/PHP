@@ -1,0 +1,6 @@
+﻿Que saldrá para el exámen:
+	Array's (recorrido de array's, array's bidimensionales y tridimensionales).
+	Cadenas.	
+	Formularios y validación.
+	Funciones específicas y estructuras de control (switch, foreach, for-if...).
+	

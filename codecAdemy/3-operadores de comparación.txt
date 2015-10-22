@@ -1,0 +1,18 @@
+Chuleta que me he hecho del tutorial de PHP www.codecademy.com/es
+_________________________________________________________________
+
+Los operadores de comparación son los de siempre:
+
+• > Mayor que
+• < Menor que
+• <= Menor que o igual a
+• >= Mayor que o igual a
+• == Igual a
+• === Exactamente igual a
+• != Distinto de
+
+<?php
+	$n1 = 5;
+	$n2 = 5;
+	$n1 === $n2;
+?>

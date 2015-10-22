@@ -1,0 +1,5 @@
+http://www.mclibre.org/consultar/php/lecciones/php_variables1.html
+
+http://www.mclibre.org/consultar/php/lecciones/php_variables2.html
+
+http://www.mclibre.org/consultar/php/lecciones/php_variables_predefinidas.html
